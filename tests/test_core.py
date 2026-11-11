@@ -92,3 +92,26 @@ def test_erc_detects_overvoltage():
     n.nets["P_ADC7"].remove("U3.CH7")
     msgs = [i["msg"] for i in erc(n)]
     assert any("abs max" in m for m in msgs)
+
+
+def test_stabilizer_signs_and_brain_noop(cfg):
+    from hx.sim.stabilizer import Stabilizer, StabilizerGains
+    idx = {f"{s}_{j}": i for i, (s, j) in enumerate((s, j) for s in "LR" for j in ("hip_roll", "ankle_roll", "ankle_pitch"))}
+    st = Stabilizer(StabilizerGains(), idx)
+    c = st.corrections(0.0, 0.0, [0.0, 0.01], [0.0, 0.0], len(idx))
+    assert c[idx["L_ankle_roll"]] < 0 and c[idx["R_ankle_roll"]] < 0      # CoM too far left -> push ZMP left
+    c = st.corrections(0.05, 0.0, [0, 0], [0, 0], len(idx))
+    assert c[idx["L_hip_roll"]] > 0
+    assert abs(st.corrections(9, 9, [9, 9], [9, 9], len(idx))).max() <= StabilizerGains().limit + 1e-12
+
+
+def test_brain_stabilize_zero_when_on_reference(cfg):
+    from hx.brain.runtime import Brain, NodeView, VirtualBus
+    nodes = {n["name"]: NodeView(n["id"], n["name"], "", n["joints"]) for n in cfg["electrical"]["nodes"]}
+    br = Brain(cfg, VirtualBus(nodes))
+    q = {j: 0.1 if "knee" in j else 0.0 for j in br.jnames}
+    for n in br.nodes.values():
+        n.q = {j: q[j] for j in n.joints if j in q}
+    br.quat = np.array([1.0, 0, 0, 0])
+    out = br.stabilize(q, 0.01)
+    assert max(abs(out[j] - q[j]) for j in out) < 1e-9

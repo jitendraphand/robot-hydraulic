@@ -6,6 +6,7 @@
     python -m hx cad           # build STLs, plates, print plan, BOM, mass properties
     python -m hx asm           # assembly interference check over all poses
     python -m hx render        # render assembly images to docs/img
+    python -m hx video         # simulation videos of every task -> docs/video (needs EGL/OSMesa + ffmpeg)
     python -m hx gen           # generate firmware config header + CAN protocol + wiring docs
     python -m hx sil           # hydraulic software-in-the-loop tests (needs firmware lib)
     python -m hx docs          # regenerate docs/00_design_summary.md
@@ -22,9 +23,10 @@ import time
 
 def main(argv=None):
     ap = argparse.ArgumentParser(prog="hx", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["loop", "sim", "size", "cad", "asm", "render", "gen", "sil", "docs", "qa", "all"])
+    ap.add_argument("cmd", choices=["loop", "sim", "size", "cad", "asm", "render", "video", "gen", "sil", "docs", "qa", "all"])
     ap.add_argument("--iters", type=int, default=4)
     ap.add_argument("--fast", action="store_true", help="QA: skip slow simulation re-runs")
+    ap.add_argument("--only", nargs="*", help="video: subset of tasks (walk squat single_leg arm_lift stand)")
     a = ap.parse_args(argv)
     from .config import RobotConfig, save_derived
 
@@ -58,6 +60,9 @@ def main(argv=None):
     elif a.cmd == "render":
         from .tools_render import render_all
         render_all(cfg)
+    elif a.cmd == "video":
+        from .sim.video import render_all as video_all
+        video_all(cfg, only=a.only)
     elif a.cmd == "gen":
         from .codegen import generate_all
         generate_all(cfg)

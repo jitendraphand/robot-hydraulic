@@ -74,6 +74,14 @@ generated `include/pins.h`.
 2. Console: `cal <j>` stores the encoder zero in NVS. If the joint moves the wrong way, use `dir <j>`.
 3. Run the bench step test (docs/08) and record overshoot and steady-state error in `qa/build_log.yaml`.
 
+## Brain-side balance stabilizer
+
+`hx/brain/runtime.py` runs the same `Stabilizer` as the simulation. It reads the hub's IMU
+quaternion (CAN 0x3F1) and the joint states, then computes the CoM relative to the feet for both
+the measured state and the reference with the MuJoCo kinematic model. It adds the hip-roll and
+ankle corrections (clamped to ±0.15 rad) to the streamed setpoints. Until the IMU and every joint
+state have arrived it is a no-op.
+
 ## CAN protocol
 
 See `hx/protocol.py`. Setpoint frames are `q_ref` (1e-4 rad), `qd_ref` (1e-3 rad/s), `tau_ff`

@@ -20,11 +20,11 @@ HX-1 system
 │  ├─ Printability               bed fit (N4 Max) · watertight meshes · materials vs printer · plan/plates/BOM
 │  └─ Assembly                   exact-boolean interference over ~120 poses · cylinder strokes · lug bearing stress
 ├─ Hydraulics                    torque vs demand at every sample · full-range floor & moment arm · valve flow · HPU · pressure ratings · proof procedure
-├─ Whole-body simulation         stand · walk · squat · single-leg · arm lift · servo utilisation · soft-limit use
+├─ Whole-body simulation         stand · walk · squat · single-leg · arm lift (each vs current CAD mass) · ±10 % mass robustness · servo utilisation · soft-limit use
 ├─ Firmware & control            -Werror build + unit tests · node compile · generated headers current · brain interlocks
 │  └─ Hydraulic SIL              per joint: step + walk/squat replay · fault injection
 ├─ Electronics                   ERC · power budget · harness · CAN load · e-stop architecture
-├─ Documentation & safety
+├─ Documentation & safety        guides · safety content · task videos present
 └─ Requirements traceability     every requirement in config/requirements.yaml verified by >= 1 check
 ```
 
@@ -43,7 +43,9 @@ QA findings feed back into the design inputs, and the generators re-derive every
   * the SIL drove the force-loop gain derivation and the valve upsizing;
   * the ERC moved pins off the DevKit's RGB-LED line;
   * the power check upsized the servo regulator;
-  * the harness check moved the main leads to AWG8.
+  * the harness check moved the main leads to AWG8;
+  * the walking video exposed a marginal open-loop gait. That led to the balance stabilizer, the
+    ±10 % mass robustness check (`SIM-8`) and the sim-vs-CAD mass check.
 
 ## Build QA (physical)
 

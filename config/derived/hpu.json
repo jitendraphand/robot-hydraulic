@@ -1,39 +1,39 @@
 {
   "accumulator_usable_l": 0.08653846153846156,
   "arm_lift": {
-    "hydraulic_power_w": 57.409736033360474,
-    "mean_flow_lpm": 2.2963894413344192,
-    "min_supply_bar": 13.48452470076863,
-    "peak_flow_lpm": 6.169984157529782,
-    "pump_duty": 0.2970606629143214
+    "hydraulic_power_w": 53.511861341137326,
+    "mean_flow_lpm": 2.140474453645493,
+    "min_supply_bar": 13.492860704900709,
+    "peak_flow_lpm": 5.711590227935366,
+    "pump_duty": 0.2776735459662289
   },
   "pump_flow_lpm": 7.65,
   "single_leg": {
-    "hydraulic_power_w": 36.10863663154552,
-    "mean_flow_lpm": 1.4443454652618208,
-    "min_supply_bar": 13.498187007724349,
-    "peak_flow_lpm": 4.699104440972836,
-    "pump_duty": 0.18386491557223264
+    "hydraulic_power_w": 33.9170421402761,
+    "mean_flow_lpm": 1.356681685611044,
+    "min_supply_bar": 13.494125758030084,
+    "peak_flow_lpm": 3.788320485909955,
+    "pump_duty": 0.14446529080675422
   },
   "squat": {
-    "hydraulic_power_w": 52.707682318558206,
-    "mean_flow_lpm": 2.108307292742328,
-    "min_supply_bar": 13.491988392554845,
-    "peak_flow_lpm": 4.3873863721342525,
-    "pump_duty": 0.23802716225875625
+    "hydraulic_power_w": 45.28554212772203,
+    "mean_flow_lpm": 1.8114216851088814,
+    "min_supply_bar": 13.49504126692632,
+    "peak_flow_lpm": 3.700926733643284,
+    "pump_duty": 0.21300929235167976
   },
   "stand": {
-    "hydraulic_power_w": 10.539326091204696,
-    "mean_flow_lpm": 0.4215730436481878,
-    "min_supply_bar": 14.14985015637741,
-    "peak_flow_lpm": 0.44100865600101524,
+    "hydraulic_power_w": 10.5008454166489,
+    "mean_flow_lpm": 0.420033816665956,
+    "min_supply_bar": 14.152789821978768,
+    "peak_flow_lpm": 0.42007349173301595,
     "pump_duty": 0.0
   },
   "walk": {
-    "hydraulic_power_w": 131.29659043455146,
-    "mean_flow_lpm": 5.251863617382058,
-    "min_supply_bar": 13.45950201430555,
-    "peak_flow_lpm": 16.065165582407342,
-    "pump_duty": 0.6697916666666667
+    "hydraulic_power_w": 111.64038445643999,
+    "mean_flow_lpm": 4.465615378257599,
+    "min_supply_bar": 13.304337341627514,
+    "peak_flow_lpm": 12.591358414862665,
+    "pump_duty": 0.5755208333333334
   }
 }

@@ -36,9 +36,9 @@ class Scenario:
     name = "base"
     payload = 0.0
 
-    def __init__(self, cfg: RobotConfig):
+    def __init__(self, cfg: RobotConfig, meshes: dict | None = None):
         self.cfg = cfg
-        self.model = mujoco.MjModel.from_xml_string(build_mjcf(cfg, self.payload))
+        self.model = mujoco.MjModel.from_xml_string(build_mjcf(cfg, self.payload, meshes=meshes))
         self.ik = WholeBodyIK(self.model)
         self.w = cfg["sim"]["gait"]["step_width"] / 2
         self.z0 = cfg["sim"]["standing_pelvis_height"]
@@ -52,12 +52,14 @@ class Scenario:
         m = self.model
         q = m.qpos0.copy()
         q[2] = self.z0
-        refs, ts, errs = [], [], []
+        refs, ts, errs, coms = [], [], [], []
         for t, feet, com, pz, fixed in self.frames():
+            coms.append([float(com[0]), float(com[1])])
             q, err = self.ik.solve(q, feet, com, pz, fixed, iters=40 if not refs else 12)
             refs.append(q.copy())
             ts.append(t)
             errs.append(err)
+        self.com_ref = np.array(coms)           # planned CoM (x, y) -> stabilizer
         return np.array(ts), np.array(refs), float(np.max(errs))
 
 
@@ -121,9 +123,9 @@ class SingleLeg(Scenario):
 class ArmLift(Scenario):
     name = "arm_lift"
 
-    def __init__(self, cfg):
+    def __init__(self, cfg, meshes=None):
         self.payload = cfg["sim"]["payload_per_hand_kg"]
-        super().__init__(cfg)
+        super().__init__(cfg, meshes)
 
     def frames(self):
         sp = math.radians(self.cfg["sim"]["arm_lift_shoulder_deg"])
@@ -142,7 +144,8 @@ class ArmLift(Scenario):
 SCENARIOS = [Stand, Squat, Walk, SingleLeg, ArmLift]
 
 
-def run(sc: Scenario, log=print):
+def run(sc: Scenario, log=print, frame_cb=None, frame_dt: float = 1 / 30):
+    """frame_cb(t, model, data) is called every frame_dt of simulated time (video capture)."""
     cfg = sc.cfg
     m = sc.model
     d = mujoco.MjData(m)
@@ -174,6 +177,11 @@ def run(sc: Scenario, log=print):
     pel = m.body("pelvis").id
     slip = 0.0
     feet_ids = {s: m.site(f"{s}_foot_sole").id for s in ("L", "R")}
+    next_frame = 0.0
+    from .stabilizer import Stabilizer, StabilizerGains, pelvis_roll
+    stab = Stabilizer(StabilizerGains.from_cfg(cfg), {n: i for i, n in enumerate(joints)})
+    com_ref = sc.com_ref
+    com_vref = np.gradient(com_ref, REF_DT, axis=0)
     for k in range(nsteps):
         tt = max(0.0, k * dt - settle)
         i = min(int(tt / REF_DT), len(tr) - 2)
@@ -182,8 +190,17 @@ def run(sc: Scenario, log=print):
         vd = vj[i] * (1 - a) + vj[i + 1] * a
         q = d.qpos[qadr]
         # position actuators: tau = kp (ctrl - q) - kv qdot ; add velocity feed-forward via ctrl lead
-        d.ctrl[:] = qd + (kd / kp) * vd
+        # balance stabilizer (attitude + CoM feedback), identical to the brain's
+        mujoco.mj_comPos(m, d)
+        mujoco.mj_subtreeVel(m, d)
+        j_ = min(i, len(com_ref) - 1)
+        corr = stab.corrections(pelvis_roll(d.xmat[pel]), d.qvel[3], d.subtree_com[pel][:2] - com_ref[j_],
+                                d.subtree_linvel[pel][:2] - com_vref[j_], len(joints))
+        d.ctrl[:] = qd + corr + (kd / kp) * vd
         mujoco.mj_step(m, d)
+        if frame_cb is not None and k * dt >= next_frame:
+            frame_cb(k * dt, m, d)
+            next_frame += frame_dt
         if k * dt >= settle and k % rec_every == 0:
             for jj, n in enumerate(joints):
                 rec[n]["q"].append(float(d.qpos[qadr[jj]]))

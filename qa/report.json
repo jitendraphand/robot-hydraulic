@@ -1,5 +1,5 @@
 {
- "config": "393db12be9dd23c9",
+ "config": "68faa233b24d373e",
  "design": {
   "name": "HX-1 system",
   "status": "WARN",
@@ -9,8 +9,8 @@
     "title": "requirements traceability",
     "reqs": [],
     "status": "PASS",
-    "detail": "37 requirements, all verified by >= 1 check",
-    "seconds": 0.005,
+    "detail": "39 requirements, all verified by >= 1 check",
+    "seconds": 0.004,
     "metrics": {}
    }
   ],
@@ -27,7 +27,7 @@
       ],
       "status": "PASS",
       "detail": "robot.yaml validates against robot.schema.json",
-      "seconds": 0.072,
+      "seconds": 0.076,
       "metrics": {}
      },
      {
@@ -48,7 +48,7 @@
        "SYS-006"
       ],
       "status": "PASS",
-      "detail": "all 10 derived artefacts generated from robot.yaml 393db12be9dd23c9",
+      "detail": "all 10 derived artefacts generated from robot.yaml 68faa233b24d373e",
       "seconds": 0.0,
       "metrics": {}
      },
@@ -59,11 +59,11 @@
        "SYS-007"
       ],
       "status": "PASS",
-      "detail": "converged in 3 iterations, mass 19.60 kg",
+      "detail": "converged in 2 iterations, mass 19.35 kg",
       "seconds": 0.0,
       "metrics": {
-       "iterations": 3,
-       "mass": 19.602073211107474
+       "iterations": 2,
+       "mass": 19.345548967956685
       }
      },
      {
@@ -73,10 +73,10 @@
        "SYS-002"
       ],
       "status": "PASS",
-      "detail": "19.60 kg <= 25.0 kg",
-      "seconds": 0.021,
+      "detail": "19.35 kg <= 25.0 kg",
+      "seconds": 0.023,
       "metrics": {
-       "mass_kg": 19.602073211107474
+       "mass_kg": 19.345548967956685
       }
      }
     ],
@@ -99,7 +99,7 @@
         ],
         "status": "PASS",
         "detail": "54 part designs fit; largest torso [190.0, 378.0, 384.0] mm",
-        "seconds": 0.0,
+        "seconds": 0.001,
         "metrics": {}
        },
        {
@@ -110,7 +110,7 @@
         ],
         "status": "PASS",
         "detail": "66 STL files exist, watertight, positive volume",
-        "seconds": 0.896,
+        "seconds": 0.936,
         "metrics": {}
        },
        {
@@ -150,7 +150,7 @@
         ],
         "status": "PASS",
         "detail": "116 poses, 0 interferences (> 2.0 mm3)",
-        "seconds": 9.868,
+        "seconds": 10.31,
         "metrics": {
          "poses": 116
         }
@@ -173,7 +173,7 @@
          "MEC-006"
         ],
         "status": "PASS",
-        "detail": "min lug bearing SF 6.1 (ankle_pitch) >= 3.0",
+        "detail": "min lug bearing SF 6.1 (shoulder_pitch) >= 3.0",
         "seconds": 0.0,
         "metrics": {
          "sf": 6.14384890612096
@@ -195,7 +195,7 @@
        "HYD-001"
       ],
       "status": "PASS",
-      "detail": "all 7 joint types >= SF x demand; tightest ankle_roll 1.17",
+      "detail": "all 7 joint types >= SF x demand; tightest ankle_roll 1.14",
       "seconds": 0.0,
       "metrics": {}
      },
@@ -217,7 +217,7 @@
        "HYD-003"
       ],
       "status": "PASS",
-      "detail": "valve 7.22 L/min >= 1.2 x peak 5.85 L/min (knee)",
+      "detail": "valve 7.22 L/min >= 1.2 x peak 4.96 L/min (knee)",
       "seconds": 0.0,
       "metrics": {}
      },
@@ -228,7 +228,7 @@
        "HYD-004"
       ],
       "status": "PASS",
-      "detail": "min supply 13.5 bar (walk) >= 13.0; max pump duty 0.67; pump 7.65 L/min, accumulator 87 mL usable",
+      "detail": "min supply 13.3 bar (walk) >= 13.0; max pump duty 0.58; pump 7.65 L/min, accumulator 87 mL usable",
       "seconds": 0.0,
       "metrics": {}
      },
@@ -268,8 +268,8 @@
        "SYS-003"
       ],
       "status": "PASS",
-      "detail": "stable, tilt 0.2 deg, max hydraulic tracking 0.13 deg, mass 19.6 kg",
-      "seconds": 0.0,
+      "detail": "stable, tilt 0.1 deg, max hydraulic tracking 0.13 deg, mass 19.3 kg",
+      "seconds": 0.002,
       "metrics": {}
      },
      {
@@ -279,8 +279,8 @@
        "SYS-003"
       ],
       "status": "PASS",
-      "detail": "stable, tilt 1.6 deg, max hydraulic tracking 0.46 deg, mass 19.6 kg",
-      "seconds": 0.0,
+      "detail": "stable, tilt 1.4 deg, max hydraulic tracking 2.55 deg, mass 19.3 kg",
+      "seconds": 0.002,
       "metrics": {}
      },
      {
@@ -290,8 +290,8 @@
        "SYS-004"
       ],
       "status": "PASS",
-      "detail": "stable, tilt 0.3 deg, max hydraulic tracking 0.31 deg, mass 19.6 kg",
-      "seconds": 0.0,
+      "detail": "stable, tilt 0.2 deg, max hydraulic tracking 0.31 deg, mass 19.3 kg",
+      "seconds": 0.002,
       "metrics": {}
      },
      {
@@ -301,8 +301,8 @@
        "SYS-004"
       ],
       "status": "PASS",
-      "detail": "stable, tilt 0.9 deg, max hydraulic tracking 0.45 deg, mass 19.6 kg",
-      "seconds": 0.0,
+      "detail": "stable, tilt 0.7 deg, max hydraulic tracking 3.26 deg, mass 19.3 kg",
+      "seconds": 0.002,
       "metrics": {}
      },
      {
@@ -312,8 +312,8 @@
        "SYS-005"
       ],
       "status": "PASS",
-      "detail": "stable, tilt 0.2 deg, max hydraulic tracking 0.70 deg, mass 21.6 kg",
-      "seconds": 0.0,
+      "detail": "stable, tilt 0.1 deg, max hydraulic tracking 0.70 deg, mass 21.3 kg",
+      "seconds": 0.002,
       "metrics": {}
      },
      {
@@ -323,7 +323,7 @@
        "ELE-005"
       ],
       "status": "PASS",
-      "detail": "max servo utilisation 31 % (L_hip_yaw) <= 50 %",
+      "detail": "max servo utilisation 28 % (L_hip_yaw) <= 50 %",
       "seconds": 0.002,
       "metrics": {}
      },
@@ -336,6 +336,17 @@
       "status": "PASS",
       "detail": "simulated motion stays inside soft limits",
       "seconds": 0.002,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-8",
+      "title": "walk robust to torso mass error",
+      "reqs": [
+       "SYS-008"
+      ],
+      "status": "PASS",
+      "detail": "walk stable with torso mass x0.9: tilt 1.2 deg, x1.1: tilt 1.6 deg (balance stabilizer on)",
+      "seconds": 8.284,
       "metrics": {}
      }
     ],
@@ -355,7 +366,7 @@
       ],
       "status": "PASS",
       "detail": "-Werror build, 24 tests, 4612 checks, 0 failed checks, 0 failed tests",
-      "seconds": 0.127,
+      "seconds": 0.119,
       "metrics": {}
      },
      {
@@ -366,7 +377,7 @@
       ],
       "status": "PASS",
       "detail": "5 node builds compile against the Arduino-ESP32 API (host check; full ESP32 toolchain build runs in CI: `pio run`)",
-      "seconds": 2.461,
+      "seconds": 2.428,
       "metrics": {}
      },
      {
@@ -377,7 +388,7 @@
       ],
       "status": "PASS",
       "detail": "robot_config.h, can_protocol.h, pins.h match the configuration",
-      "seconds": 0.041,
+      "seconds": 0.03,
       "metrics": {}
      },
      {
@@ -388,7 +399,7 @@
       ],
       "status": "PASS",
       "detail": "arms with healthy nodes and pressure; refuses with a faulted node",
-      "seconds": 0.599,
+      "seconds": 0.611,
       "metrics": {}
      }
     ],
@@ -405,7 +416,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 4.0 % ts 0.10 s ss 0.23 deg; walk rms 0.79 max 1.68 deg; squat max 0.17 deg; pmax 11.1 bar",
+        "detail": "step os 3.9 % ts 0.10 s ss 0.21 deg; walk rms 0.86 max 1.93 deg; squat max 0.17 deg; pmax 11.2 bar",
         "seconds": 0.001,
         "metrics": {}
        },
@@ -417,7 +428,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 5.0 % ts 0.11 s ss 0.16 deg; walk rms 1.12 max 2.36 deg; squat max 1.16 deg; pmax 11.9 bar",
+        "detail": "step os 4.5 % ts 0.11 s ss 0.22 deg; walk rms 1.05 max 2.19 deg; squat max 1.03 deg; pmax 11.9 bar",
         "seconds": 0.0,
         "metrics": {}
        },
@@ -429,7 +440,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 3.4 % ts 0.09 s ss 0.25 deg; walk rms 0.93 max 3.09 deg; squat max 1.43 deg; pmax 11.8 bar",
+        "detail": "step os 3.5 % ts 0.08 s ss 0.23 deg; walk rms 0.87 max 2.95 deg; squat max 1.71 deg; pmax 11.7 bar",
         "seconds": 0.0,
         "metrics": {}
        },
@@ -441,7 +452,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 3.1 % ts 0.09 s ss 0.23 deg; walk rms 0.38 max 1.14 deg; squat max 0.59 deg; pmax 9.9 bar",
+        "detail": "step os 2.8 % ts 0.09 s ss 0.22 deg; walk rms 0.50 max 1.39 deg; squat max 0.89 deg; pmax 10.3 bar",
         "seconds": 0.0,
         "metrics": {}
        },
@@ -453,7 +464,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 1.7 % ts 0.08 s ss 0.12 deg; walk rms 1.32 max 2.36 deg; squat max 0.24 deg; pmax 10.9 bar",
+        "detail": "step os 1.5 % ts 0.08 s ss 0.07 deg; walk rms 1.28 max 2.63 deg; squat max 0.22 deg; pmax 11.4 bar",
         "seconds": 0.0,
         "metrics": {}
        },
@@ -465,7 +476,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 1.8 % ts 0.10 s ss 0.08 deg; walk rms 0.07 max 0.20 deg; squat max 0.20 deg; pmax 8.3 bar",
+        "detail": "step os 1.9 % ts 0.10 s ss 0.08 deg; walk rms 0.07 max 0.21 deg; squat max 0.20 deg; pmax 8.3 bar",
         "seconds": 0.0,
         "metrics": {}
        },
@@ -477,7 +488,7 @@
          "CTL-005"
         ],
         "status": "PASS",
-        "detail": "step os 0.0 % ts 0.11 s ss 0.10 deg; walk rms 0.11 max 0.41 deg; squat max 0.41 deg; pmax 8.3 bar",
+        "detail": "step os 0.0 % ts 0.11 s ss 0.09 deg; walk rms 0.11 max 0.42 deg; squat max 0.42 deg; pmax 8.3 bar",
         "seconds": 0.0,
         "metrics": {}
        },
@@ -583,6 +594,17 @@
       ],
       "status": "PASS",
       "detail": "hazards, PPE, proof testing, e-stop, gantry bring-up covered",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "DOC-3",
+      "title": "simulation videos of every task",
+      "reqs": [
+       "DOC-002"
+      ],
+      "status": "PASS",
+      "detail": "5 task videos + GIF previews + montage in docs/video (regenerate: `make videos`)",
       "seconds": 0.0,
       "metrics": {}
      }

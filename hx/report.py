@@ -70,6 +70,11 @@ def design_summary(cfg: RobotConfig) -> str:
     L += ["", "## Mass by body", "", "| body | mass (kg) |", "|---|---|"]
     for k, v in sorted(mm.items()):
         L.append(f"| {k} | {v['mass']:.3f} |")
+    L += ["", "## Simulation videos", "",
+          "Same physics runs as the QA, rendered with the CAD parts and live cylinders "
+          "(`make videos`): [walk](video/walk.mp4) · [squat](video/squat.mp4) · [single-leg](video/single_leg.mp4) · "
+          "[arm lift](video/arm_lift.mp4) · [stand](video/stand.mp4) · [montage](video/hx1_tasks.mp4)", "",
+          "![walk](video/gif/walk.gif)"]
     L += ["", "## Renders", "", "![nominal](img/assembly_zero.png)", "![squat](img/assembly_squat.png)",
           "![stride](img/assembly_stride.png)", "![arms](img/assembly_arms.png)", "![parts](img/parts_sheet.png)", ""]
     return "\n".join(L)

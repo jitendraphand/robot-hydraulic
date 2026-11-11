@@ -62,7 +62,7 @@
       "bed_dims_mm": [
         122.8,
         129.9,
-        200.0
+        199.9
       ],
       "body": "L_hip_yaw_link",
       "files": [
@@ -85,14 +85,14 @@
       "profile": "structural",
       "qty": 2,
       "qty_each": 1,
-      "volume_cm3": 121.89,
+      "volume_cm3": 121.91,
       "watertight": true
     },
     {
       "bed_dims_mm": [
-        166.9,
-        181.9,
-        204.9
+        164.9,
+        181.8,
+        205.8
       ],
       "body": "L_hip_roll_link",
       "files": [
@@ -102,7 +102,7 @@
       "fits": true,
       "group": "structure",
       "hardened_nozzle": true,
-      "mass_kg_each": 0.1249,
+      "mass_kg_each": 0.1247,
       "material": "PA12-CF",
       "name": "L_hip_roll_link",
       "notes": "",
@@ -111,16 +111,16 @@
         90,
         0
       ],
-      "print_h_each": 2.99,
+      "print_h_each": 2.98,
       "profile": "structural",
       "qty": 2,
       "qty_each": 1,
-      "volume_cm3": 135.31,
+      "volume_cm3": 135.09,
       "watertight": true
     },
     {
       "bed_dims_mm": [
-        173.0,
+        170.8,
         338.0,
         90.8
       ],
@@ -132,7 +132,7 @@
       "fits": true,
       "group": "structure",
       "hardened_nozzle": true,
-      "mass_kg_each": 0.2353,
+      "mass_kg_each": 0.2351,
       "material": "PA12-CF",
       "name": "L_thigh",
       "notes": "",
@@ -141,17 +141,17 @@
         0,
         0
       ],
-      "print_h_each": 5.63,
+      "print_h_each": 5.62,
       "profile": "structural",
       "qty": 2,
       "qty_each": 1,
-      "volume_cm3": 333.12,
+      "volume_cm3": 332.69,
       "watertight": true
     },
     {
       "bed_dims_mm": [
         125.3,
-        345.2,
+        356.7,
         84.8
       ],
       "body": "L_shin",
@@ -162,7 +162,7 @@
       "fits": true,
       "group": "structure",
       "hardened_nozzle": true,
-      "mass_kg_each": 0.2468,
+      "mass_kg_each": 0.2447,
       "material": "PA12-CF",
       "name": "L_shin",
       "notes": "",
@@ -171,11 +171,11 @@
         0,
         0
       ],
-      "print_h_each": 5.9,
+      "print_h_each": 5.85,
       "profile": "structural",
       "qty": 2,
       "qty_each": 1,
-      "volume_cm3": 351.95,
+      "volume_cm3": 348.8,
       "watertight": true
     },
     {
@@ -300,7 +300,7 @@
     },
     {
       "bed_dims_mm": [
-        113.1,
+        114.2,
         212.5,
         94.8
       ],
@@ -312,7 +312,7 @@
       "fits": true,
       "group": "structure",
       "hardened_nozzle": true,
-      "mass_kg_each": 0.14,
+      "mass_kg_each": 0.1402,
       "material": "PA12-CF",
       "name": "L_upper_arm",
       "notes": "",
@@ -325,12 +325,12 @@
       "profile": "structural",
       "qty": 2,
       "qty_each": 1,
-      "volume_cm3": 190.39,
+      "volume_cm3": 190.67,
       "watertight": true
     },
     {
       "bed_dims_mm": [
-        64.3,
+        64.2,
         239.0,
         97.8
       ],
@@ -355,7 +355,7 @@
       "profile": "structural",
       "qty": 2,
       "qty_each": 1,
-      "volume_cm3": 142.03,
+      "volume_cm3": 141.97,
       "watertight": true
     },
     {
@@ -536,52 +536,23 @@
     },
     {
       "bed_dims_mm": [
-        54.0,
-        54.0,
+        47.0,
+        47.0,
         57.0
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b32s100_blind_cap.stl"
+        "cad/stl/cyl_b25s100_blind_cap.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": true,
-      "mass_kg_each": 0.0534,
+      "mass_kg_each": 0.0416,
       "material": "PA12-CF",
-      "name": "cyl_b32s100_blind_cap",
-      "notes": "32 mm bore x 100 stroke, rod 12: ankle_pitch",
+      "name": "cyl_b25s100_blind_cap",
+      "notes": "25 mm bore x 100 stroke, rod 10: ankle_pitch",
       "orient": [
         0,
-        0,
-        0
-      ],
-      "print_h_each": 1.28,
-      "profile": "pressure",
-      "qty": 2,
-      "qty_each": 2,
-      "volume_cm3": 47.67,
-      "watertight": true
-    },
-    {
-      "bed_dims_mm": [
-        54.0,
-        54.0,
-        22.0
-      ],
-      "body": null,
-      "files": [
-        "cad/stl/cyl_b32s100_rod_cap.stl"
-      ],
-      "fits": true,
-      "group": "hydraulic",
-      "hardened_nozzle": true,
-      "mass_kg_each": 0.0414,
-      "material": "PA12-CF",
-      "name": "cyl_b32s100_rod_cap",
-      "notes": "32 mm bore x 100 stroke, rod 12: ankle_pitch",
-      "orient": [
-        180,
         0,
         0
       ],
@@ -589,65 +560,94 @@
       "profile": "pressure",
       "qty": 2,
       "qty_each": 2,
-      "volume_cm3": 36.95,
+      "volume_cm3": 37.11,
       "watertight": true
     },
     {
       "bed_dims_mm": [
-        31.7,
-        31.7,
-        14.0
+        47.0,
+        47.0,
+        22.0
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b32s100_piston.stl"
+        "cad/stl/cyl_b25s100_rod_cap.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": true,
-      "mass_kg_each": 0.0104,
+      "mass_kg_each": 0.0304,
       "material": "PA12-CF",
-      "name": "cyl_b32s100_piston",
-      "notes": "32 mm bore x 100 stroke, rod 12: ankle_pitch",
+      "name": "cyl_b25s100_rod_cap",
+      "notes": "25 mm bore x 100 stroke, rod 10: ankle_pitch",
+      "orient": [
+        180,
+        0,
+        0
+      ],
+      "print_h_each": 0.73,
+      "profile": "pressure",
+      "qty": 2,
+      "qty_each": 2,
+      "volume_cm3": 27.15,
+      "watertight": true
+    },
+    {
+      "bed_dims_mm": [
+        24.7,
+        24.7,
+        14.0
+      ],
+      "body": null,
+      "files": [
+        "cad/stl/cyl_b25s100_piston.stl"
+      ],
+      "fits": true,
+      "group": "hydraulic",
+      "hardened_nozzle": true,
+      "mass_kg_each": 0.0062,
+      "material": "PA12-CF",
+      "name": "cyl_b25s100_piston",
+      "notes": "25 mm bore x 100 stroke, rod 10: ankle_pitch",
       "orient": [
         0,
         0,
         0
       ],
-      "print_h_each": 0.25,
+      "print_h_each": 0.15,
       "profile": "pressure",
       "qty": 2,
       "qty_each": 2,
-      "volume_cm3": 9.32,
+      "volume_cm3": 5.52,
       "watertight": true
     },
     {
       "bed_dims_mm": [
         58.0,
-        57.0,
+        50.0,
         34.0
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b32s100_valve_saddle.stl"
+        "cad/stl/cyl_b25s100_valve_saddle.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": false,
-      "mass_kg_each": 0.0339,
+      "mass_kg_each": 0.0311,
       "material": "PETG",
-      "name": "cyl_b32s100_valve_saddle",
+      "name": "cyl_b25s100_valve_saddle",
       "notes": "Clamp on barrel; carries spool valve + micro servo.",
       "orient": [
         0,
         0,
         0
       ],
-      "print_h_each": 0.71,
+      "print_h_each": 0.66,
       "profile": "structural",
       "qty": 2,
       "qty_each": 2,
-      "volume_cm3": 26.66,
+      "volume_cm3": 24.46,
       "watertight": true
     },
     {
@@ -1122,15 +1122,15 @@
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b25s115_blind_cap.stl"
+        "cad/stl/cyl_b25s105_blind_cap.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": true,
       "mass_kg_each": 0.0416,
       "material": "PA12-CF",
-      "name": "cyl_b25s115_blind_cap",
-      "notes": "25 mm bore x 115 stroke, rod 10: knee",
+      "name": "cyl_b25s105_blind_cap",
+      "notes": "25 mm bore x 105 stroke, rod 10: knee",
       "orient": [
         0,
         0,
@@ -1151,15 +1151,15 @@
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b25s115_rod_cap.stl"
+        "cad/stl/cyl_b25s105_rod_cap.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": true,
       "mass_kg_each": 0.0304,
       "material": "PA12-CF",
-      "name": "cyl_b25s115_rod_cap",
-      "notes": "25 mm bore x 115 stroke, rod 10: knee",
+      "name": "cyl_b25s105_rod_cap",
+      "notes": "25 mm bore x 105 stroke, rod 10: knee",
       "orient": [
         180,
         0,
@@ -1180,15 +1180,15 @@
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b25s115_piston.stl"
+        "cad/stl/cyl_b25s105_piston.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": true,
       "mass_kg_each": 0.0062,
       "material": "PA12-CF",
-      "name": "cyl_b25s115_piston",
-      "notes": "25 mm bore x 115 stroke, rod 10: knee",
+      "name": "cyl_b25s105_piston",
+      "notes": "25 mm bore x 105 stroke, rod 10: knee",
       "orient": [
         0,
         0,
@@ -1209,14 +1209,14 @@
       ],
       "body": null,
       "files": [
-        "cad/stl/cyl_b25s115_valve_saddle.stl"
+        "cad/stl/cyl_b25s105_valve_saddle.stl"
       ],
       "fits": true,
       "group": "hydraulic",
       "hardened_nozzle": false,
       "mass_kg_each": 0.0311,
       "material": "PETG",
-      "name": "cyl_b25s115_valve_saddle",
+      "name": "cyl_b25s105_valve_saddle",
       "notes": "Clamp on barrel; carries spool valve + micro servo.",
       "orient": [
         0,
@@ -1587,15 +1587,16 @@
         "L_shin#0",
         "R_shin#0",
         "pelvis#0",
-        "cyl_b25s75_blind_cap#0",
-        "cyl_b25s75_blind_cap#1",
-        "cyl_b25s75_rod_cap#0",
-        "cyl_b25s75_rod_cap#1",
-        "cyl_b25s115_blind_cap#0",
-        "cyl_b25s115_blind_cap#1",
-        "cyl_b25s115_rod_cap#0",
+        "cyl_b20s55_blind_cap#0",
+        "cyl_b20s55_blind_cap#1",
+        "cyl_b20s55_rod_cap#0",
+        "cyl_b20s55_rod_cap#1",
+        "cyl_b20s40_blind_cap#0",
+        "cyl_b20s40_blind_cap#1",
+        "cyl_b20s40_rod_cap#0",
+        "cyl_b20s40_rod_cap#1",
         "cyl_b16s140_blind_cap#0",
-        "cyl_b32s100_piston#0"
+        "cyl_b25s100_piston#0"
       ]
     },
     {
@@ -1605,11 +1606,11 @@
         "L_thigh#0",
         "R_thigh#0",
         "fit_coupon#0",
-        "cyl_b32s100_blind_cap#0",
-        "cyl_b32s100_blind_cap#1",
-        "cyl_b32s100_rod_cap#0",
-        "cyl_b32s100_rod_cap#1",
-        "cyl_b20s55_blind_cap#0"
+        "cyl_b32s75_blind_cap#0",
+        "cyl_b32s75_blind_cap#1",
+        "cyl_b32s75_rod_cap#0",
+        "cyl_b32s75_rod_cap#1",
+        "cyl_b25s100_blind_cap#0"
       ]
     },
     {
@@ -1620,7 +1621,7 @@
         "R_ankle_link#0",
         "L_foot#0",
         "L_hip_yaw_link#0",
-        "cyl_b25s115_rod_cap#1",
+        "cyl_b25s100_blind_cap#1",
         "cyl_b16s140_blind_cap#1"
       ]
     },
@@ -1633,8 +1634,8 @@
         "L_hip_roll_link#0",
         "R_hip_roll_link#0",
         "R_hip_yaw_link#0",
-        "cyl_b32s75_blind_cap#0",
-        "cyl_b16s140_rod_cap#0"
+        "cyl_b25s100_rod_cap#0",
+        "cyl_b32s75_piston#0"
       ]
     },
     {
@@ -1644,24 +1645,23 @@
         "R_foot#0",
         "L_shoulder_link#0",
         "R_shoulder_link#0",
-        "cyl_b32s75_blind_cap#1",
-        "cyl_b32s75_rod_cap#0",
-        "cyl_b32s75_rod_cap#1",
-        "cyl_b20s55_blind_cap#1",
-        "cyl_b20s55_rod_cap#0",
-        "cyl_b20s55_rod_cap#1",
-        "cyl_b20s40_blind_cap#0",
-        "cyl_b20s40_blind_cap#1",
-        "cyl_b20s40_rod_cap#0",
-        "cyl_b20s40_rod_cap#1",
+        "cyl_b25s100_rod_cap#1",
+        "cyl_b25s75_blind_cap#0",
+        "cyl_b25s75_blind_cap#1",
+        "cyl_b25s75_rod_cap#0",
+        "cyl_b25s75_rod_cap#1",
+        "cyl_b25s105_blind_cap#0",
+        "cyl_b25s105_blind_cap#1",
+        "cyl_b25s105_rod_cap#0",
+        "cyl_b25s105_rod_cap#1",
+        "cyl_b16s140_rod_cap#0",
         "cyl_b16s140_rod_cap#1",
-        "cyl_b32s100_piston#1",
-        "cyl_b32s75_piston#0",
         "cyl_b32s75_piston#1",
+        "cyl_b25s100_piston#1",
         "cyl_b25s75_piston#0",
         "cyl_b25s75_piston#1",
-        "cyl_b25s115_piston#0",
-        "cyl_b25s115_piston#1",
+        "cyl_b25s105_piston#0",
+        "cyl_b25s105_piston#1",
         "cyl_b20s55_piston#0",
         "cyl_b20s55_piston#1",
         "cyl_b20s40_piston#0",
@@ -1677,7 +1677,7 @@
         "torso#0",
         "L_forearm#0",
         "R_forearm#0",
-        "cyl_b32s100_valve_saddle#0",
+        "cyl_b32s75_valve_saddle#0",
         "encoder_bracket#0",
         "encoder_bracket#1",
         "encoder_bracket#2",
@@ -1729,13 +1729,13 @@
         "limb_node_lid#1",
         "limb_node_lid#2",
         "limb_node_lid#3",
-        "cyl_b32s100_valve_saddle#1",
-        "cyl_b32s75_valve_saddle#0",
         "cyl_b32s75_valve_saddle#1",
+        "cyl_b25s100_valve_saddle#0",
+        "cyl_b25s100_valve_saddle#1",
         "cyl_b25s75_valve_saddle#0",
         "cyl_b25s75_valve_saddle#1",
-        "cyl_b25s115_valve_saddle#0",
-        "cyl_b25s115_valve_saddle#1",
+        "cyl_b25s105_valve_saddle#0",
+        "cyl_b25s105_valve_saddle#1",
         "neck_link#0",
         "L_hand#0",
         "R_hand#0",

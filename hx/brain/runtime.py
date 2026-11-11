@@ -16,6 +16,7 @@ Any node FAULT/ESTOP or a lost status stream -> DISARM to every node.
 from __future__ import annotations
 
 import argparse
+import math
 import time
 from dataclasses import dataclass, field
 
@@ -105,7 +106,17 @@ class Brain:
         self.nodes = {n["name"]: NodeView(n["id"], n["name"], bus_of[n["name"]], n["joints"])
                       for n in cfg["electrical"]["nodes"]}
         self.p_supply = 0.0
+        self.quat = None                         # IMU quaternion (w, x, y, z) from the hub
         self.counter = 0
+        import mujoco
+        from ..sim.model import build_mjcf
+        from ..sim.stabilizer import Stabilizer, StabilizerGains
+        self.model = mujoco.MjModel.from_xml_string(build_mjcf(cfg))
+        self.mdata = mujoco.MjData(self.model)
+        jn = [self.model.joint(i).name for i in range(self.model.njnt) if self.model.joint(i).name != "root"]
+        self.jnames = jn
+        self.stab = Stabilizer(StabilizerGains.from_cfg(cfg), {n: i for i, n in enumerate(jn)})
+        self._e_prev = None
         self.t0 = time.time()
         self.band = [b * 1e5 for b in cfg.hyd["hpu"]["pressure_band_bar"]]
 
@@ -122,6 +133,9 @@ class Brain:
                         n.last_rx = now
             elif cid == P.ID_HPU:
                 self.p_supply = P.unpack("hpu", data)["p_supply"]
+            elif cid == P.ID_IMU:
+                import struct
+                self.quat = np.array(struct.unpack("<4h", data[:8]), float) / 16384.0
             elif P.ID_STATE <= cid < P.ID_STATUS:
                 node_id, j = divmod(cid - P.ID_STATE, 8)
                 for n in self.nodes.values():
@@ -146,6 +160,31 @@ class Brain:
                     continue
                 self.bus.send(P.setpoint_id(n.id, j),
                               P.pack_setpoint(q[jn], (qd or {}).get(jn, 0.0), (tau or {}).get(jn, 0.0), mode=mode))
+
+    def stabilize(self, q_ref: dict, dt: float) -> dict:
+        """Same balance feedback as the simulation: IMU roll + CoM error (measured vs reference
+        kinematics, both relative to the feet).  No-op until IMU and joint states arrive."""
+        from ..sim.stabilizer import com_relative_to_feet
+        meas = {}
+        for n in self.nodes.values():
+            meas.update(n.q)
+        if self.quat is None or not all(j in meas for j in self.jnames if j in q_ref):
+            return q_ref
+        m = self.model
+        qm = m.qpos0.copy()
+        qr = m.qpos0.copy()
+        qm[3:7] = self.quat
+        for j in self.jnames:
+            a = m.joint(j).qposadr[0]
+            qr[a] = q_ref.get(j, 0.0)
+            qm[a] = meas.get(j, q_ref.get(j, 0.0))
+        e = com_relative_to_feet(m, self.mdata, qm) - com_relative_to_feet(m, self.mdata, qr)
+        ev = np.zeros(2) if self._e_prev is None else (e - self._e_prev) / dt
+        self._e_prev = e
+        w, x, y, z = self.quat
+        roll = math.atan2(2 * (w * x + y * z), 1 - 2 * (x * x + y * y))
+        corr = self.stab.corrections(roll, 0.0, e, ev, len(self.jnames))
+        return {j: q_ref[j] + (corr[i] if j in q_ref else 0.0) for i, j in enumerate(self.jnames) if j in q_ref}
 
     def all_in(self, states, stale_s=0.25):
         now = time.time()
@@ -186,8 +225,9 @@ class Brain:
                 log("[brain] node fault -> DISARM all")
                 self.command("DISARM")
                 return False
-            qd = {j: (qs[min(k + 1, len(qs) - 1)][j] - qs[k][j]) / max(ts[1] - ts[0], 1e-3) for j in qs[k]}
-            self.send_setpoints(qs[k], qd)
+            dt = max(ts[1] - ts[0], 1e-3)
+            qd = {j: (qs[min(k + 1, len(qs) - 1)][j] - qs[k][j]) / dt for j in qs[k]}
+            self.send_setpoints(self.stabilize(qs[k], dt), qd)
         self.command("DISARM")
         return True
 

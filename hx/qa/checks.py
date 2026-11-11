@@ -250,9 +250,39 @@ def c_scenario(name):
             errs.append(f"IK residual {s['ik_residual']:.3f}")
         if s.get("final_com_error_m") is not None and s["final_com_error_m"] > q["max_final_com_error_m"]:
             errs.append(f"CoM drift {s['final_com_error_m']:.3f} m")
+        from ..sim.model import total_mass
+        m_now = total_mass(ctx["cfg"], s.get("payload_kg", 0.0))
+        drift = abs(s["mass_kg"] - m_now) / m_now
+        if drift > q["max_mass_drift"]:
+            errs.append(f"simulated with {s['mass_kg']:.2f} kg but CAD now gives {m_now:.2f} kg -> re-run `make loop`")
         return check_bool(not errs, f"stable, tilt {s['max_tilt_deg']:.1f} deg, max hydraulic tracking {err:.2f} deg, "
                                     f"mass {s['mass_kg']:.1f} kg", ", ".join(errs))
     return f
+
+
+def c_robust(ctx):
+    """Walk with the torso mass scaled (unmodelled payload, CAD/print mass error)."""
+    from ..sim.scenarios import Walk, run
+    cfg = ctx["cfg"]
+    res = {}
+    for scale in cfg["qa"]["sim"]["robustness_mass_scale"]:
+        sc = Walk(cfg)
+        b = sc.model.body("torso").id
+        sc.model.body_mass[b] *= scale
+        sc.model.body_inertia[b] *= scale
+        _, s = run(sc, log=lambda *_: None)
+        res[scale] = (s["fell"], s["max_tilt_deg"])
+    bad = {k: v for k, v in res.items() if v[0] or v[1] > cfg["qa"]["sim"]["max_tilt_deg"]}
+    txt = ", ".join(f"x{k}: tilt {v[1]:.1f} deg" for k, v in res.items())
+    return check_bool(not bad, f"walk stable with torso mass {txt} (balance stabilizer on)", f"falls/tilts: {bad}")
+
+
+def c_videos(ctx):
+    tasks = ["walk", "squat", "single_leg", "arm_lift", "stand"]
+    missing = [t for t in tasks if not (ROOT / "docs" / "video" / f"{t}.mp4").exists()
+               or not (ROOT / "docs" / "video" / "gif" / f"{t}.gif").exists()]
+    return check_bool(not missing, f"{len(tasks)} task videos + GIF previews + montage in docs/video "
+                                   "(regenerate: `make videos`)", f"missing videos: {missing}")
 
 
 def c_servo(ctx):
@@ -490,7 +520,8 @@ def build_tree(cfg: RobotConfig) -> Node:
         C("SIM-4", "single-leg balance", c_scenario("single_leg"), ["SYS-004"]),
         C("SIM-5", "arm lift with payload", c_scenario("arm_lift"), ["SYS-005"]),
         C("SIM-6", "servo torque utilisation", c_servo, ["ELE-005"]),
-        C("SIM-7", "motion inside soft limits", c_ranges_used, ["SAF-002"]))
+        C("SIM-7", "motion inside soft limits", c_ranges_used, ["SAF-002"]),
+        C("SIM-8", "walk robust to torso mass error", c_robust, ["SYS-008"]))
     sil = Node("Hydraulic SIL (real firmware vs plant model)")
     for j in cfg.hydraulic_joints:
         if j.side == "L":
@@ -510,7 +541,8 @@ def build_tree(cfg: RobotConfig) -> Node:
         C("ELE-5", "e-stop power architecture", c_estop_arch, ["SAF-001"]))
     doc = Node("Documentation & safety").add(
         C("DOC-1", "guides present", c_docs, ["DOC-001"]),
-        C("DOC-2", "safety guide content", c_safety_doc, ["SAF-003"]))
+        C("DOC-2", "safety guide content", c_safety_doc, ["SAF-003"]),
+        C("DOC-3", "simulation videos of every task", c_videos, ["DOC-002"]))
     root.add(conf, cad, hyd, sim, fw, ele, doc)
     root.add(C("TRACE", "requirements traceability", c_trace, []))
     return root

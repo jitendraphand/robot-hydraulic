@@ -8,6 +8,7 @@ system:
   SYS-005: "Each arm lifts a 1 kg payload to 87 deg shoulder flexion (3 deg short of horizontal: soft-limit margin) in simulation."
   SYS-006: "Every design artefact is generated from config/robot.yaml and is up to date with it."
   SYS-007: "The coupled design (masses -> sim -> sizing -> CAD) converges in the design loop."
+  SYS-008: "Walking stays stable with +-10 % torso mass error (closed-loop balance stabilizer), and every scenario was simulated with the current CAD masses (<= 2 % drift)."
 mechanical:
   MEC-001: "Every printed part fits the Elegoo Neptune 4 Max build volume (420 x 420 x 480 mm) with margin."
   MEC-002: "Every exported mesh is a closed 2-manifold (watertight) and non-empty."
@@ -44,3 +45,4 @@ safety:
   SAF-003: "Safety documentation (hazards, PPE, proof testing, bring-up gating) exists."
 documentation:
   DOC-001: "Build, print, wiring, firmware, simulation, QA and safety guides exist."
+  DOC-002: "Rendered simulation videos (CAD meshes, live cylinders) exist for every task scenario."

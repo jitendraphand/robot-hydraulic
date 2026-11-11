@@ -8,15 +8,19 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: "3.12"}
       - run: pip install -r requirements.txt
+      - name: headless OpenGL + ffmpeg (simulation videos)
+        run: sudo apt-get update && sudo apt-get install -y libegl1 libosmesa6 ffmpeg
       - name: firmware unit tests
         run: make fw-test
       - name: python unit tests
         run: make test
+      - name: simulation videos
+        run: make videos
       - name: full recursive QA (regenerates headers check, SIL, assembly)
         run: make qa
       - uses: actions/upload-artifact@v4
         if: always()
-        with: {name: qa-report, path: qa/report.md}
+        with: {name: qa-report-and-videos, path: "qa/report.md\ndocs/video/*.mp4"}
   esp32:
     runs-on: ubuntu-latest
     steps:

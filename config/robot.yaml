@@ -412,6 +412,13 @@ sim:
   pd:     # simulation joint servo gains (idealised actuators used to find demand)
     kp: 900.0
     kd: 18.0
+  stabilizer:                       # balance feedback (hx/sim/stabilizer.py), also run by the brain
+    enabled: true
+    k_att: 1.0                      # hip roll  rad per rad of pelvis roll
+    d_att: 0.05
+    k_com: 2.0                      # ankle     rad per m of CoM error (ZMP shift)
+    d_com: 0.3
+    limit: 0.15
   squat_knee_deg: 75
   arm_lift_shoulder_deg: -87      # 3 deg inside the soft-limit band of the [-90, 45] range
 
@@ -456,6 +463,8 @@ qa:                          # acceptance thresholds used by the QA tree
     max_err_deg: 4.0           # walk/squat replay
     max_fault_detect_s: 0.05   # injected fault -> latched + valve locked
   sim:
+    robustness_mass_scale: [0.9, 1.1]   # walk must survive +-10 % torso mass (SIM-8)
+    max_mass_drift: 0.02                # simulated mass vs current CAD mass
     max_tilt_deg: 10
     max_final_com_error_m: 0.08
     max_tracking_err_deg: 5

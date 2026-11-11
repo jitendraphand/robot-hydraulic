@@ -26,6 +26,44 @@ low-pass filtered over the actuator bandwidth (20 ms) before sizing.
 python -m hx sim
 ```
 
+## Balance stabilizer
+
+The ZMP gait is planned on a linear inverted pendulum, but the real multi-body robot deviates from
+it. Rendering the walking video showed that, with the final CAD masses, the **open-loop** gait
+developed a growing lateral rocking mode: pelvis roll went ±0.5° → ±2.4° → 5.7°, and the robot
+rolled over the foot edge at t = 7.6 s. The QA had passed it, because the stable result came from
+the previous design-loop iteration's masses, 1 % lighter.
+
+`hx/sim/stabilizer.py` now adds two feedback terms to both legs' references. The same code is
+run by the brain on the robot, using the IMU and joint encoders:
+
+| term | joint | law |
+|---|---|---|
+| attitude | hip roll | `+ 1.0·roll + 0.05·roll_rate` |
+| CoM / ZMP (ankle strategy) | ankle roll, ankle pitch | `∓ (2.0·e_com + 0.3·e_com_dot)` |
+
+Gains and signs were chosen by sweep:
+
+* without the CoM term, walking fell at 0.95× torso mass;
+* the opposite CoM sign fell immediately;
+* 2× gain fell at 1.1×.
+
+The selected gains keep maximum tilt at 0.4–2.1° from 0.9× to 1.1× torso mass. Two QA checks now
+cover this. `SIM-8` re-runs the walk at ±10 % torso mass. The scenario checks also fail if a
+scenario was simulated with masses that differ from the current CAD by more than 2 %.
+
+## Videos
+
+`python -m hx video` (or `make videos`) re-runs each scenario with a frame hook. It renders the
+real CAD links as MuJoCo visual meshes in their body frames; physics is unchanged, because the
+meshes are massless and non-colliding. Each frame it draws every cylinder (blind cap, barrel, rod
+cap, chromed rod) between its live pin positions. A HUD shows per-cylinder load as `|τ| /
+capacity(q)` in the direction of the torque.
+
+Outputs go to `docs/video/<task>.mp4` (1280×720, 30 fps, H.264), `docs/video/hx1_tasks.mp4` (montage),
+and `docs/video/gif/<task>.gif` (README previews). Tasks render in parallel, about 2.5 min on 4 cores
+with software OpenGL (`MUJOCO_GL=egl`).
+
 ## Hydraulic software-in-the-loop
 
 `hx/sim/sil.py` loads `firmware/build/libhx_sil.so` (the real `JointController`) and runs it at

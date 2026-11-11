@@ -1,8 +1,8 @@
 category,item,qty,ref
-hydraulic,"Al honed barrel 32 ID x 36 OD, cut 116.0 mm",2,b32s100
-hydraulic,"Hardened chromed rod d12, cut 171.0 mm, turn M8 piston end + M8 outer end",2,b32s100
-hydraulic,M3 A4 threaded rod 160.0 mm (tie rods) + 8x M3 nyloc,8,b32s100
-hydraulic,"NBR70 O-ring set for 32 bore (piston, 2x static, 2x rod, wiper)",2,b32s100
+hydraulic,"Al honed barrel 25 ID x 29 OD, cut 116.0 mm",2,b25s100
+hydraulic,"Hardened chromed rod d10, cut 171.0 mm, turn M6 piston end + M8 outer end",2,b25s100
+hydraulic,M3 A4 threaded rod 160.0 mm (tie rods) + 8x M3 nyloc,8,b25s100
+hydraulic,"NBR70 O-ring set for 25 bore (piston, 2x static, 2x rod, wiper)",2,b25s100
 hydraulic,"Al honed barrel 20 ID x 23 OD, cut 71.0 mm",2,b20s55
 hydraulic,"Hardened chromed rod d8, cut 126.0 mm, turn M5 piston end + M6 outer end",2,b20s55
 hydraulic,M3 A4 threaded rod 115.0 mm (tie rods) + 8x M3 nyloc,8,b20s55
@@ -19,10 +19,10 @@ hydraulic,"Al honed barrel 25 ID x 29 OD, cut 91.0 mm",2,b25s75
 hydraulic,"Hardened chromed rod d10, cut 146.0 mm, turn M6 piston end + M8 outer end",2,b25s75
 hydraulic,M3 A4 threaded rod 135.0 mm (tie rods) + 8x M3 nyloc,8,b25s75
 hydraulic,"NBR70 O-ring set for 25 bore (piston, 2x static, 2x rod, wiper)",2,b25s75
-hydraulic,"Al honed barrel 25 ID x 29 OD, cut 131.0 mm",2,b25s115
-hydraulic,"Hardened chromed rod d10, cut 186.0 mm, turn M6 piston end + M8 outer end",2,b25s115
-hydraulic,M3 A4 threaded rod 175.0 mm (tie rods) + 8x M3 nyloc,8,b25s115
-hydraulic,"NBR70 O-ring set for 25 bore (piston, 2x static, 2x rod, wiper)",2,b25s115
+hydraulic,"Al honed barrel 25 ID x 29 OD, cut 121.0 mm",2,b25s105
+hydraulic,"Hardened chromed rod d10, cut 176.0 mm, turn M6 piston end + M8 outer end",2,b25s105
+hydraulic,M3 A4 threaded rod 165.0 mm (tie rods) + 8x M3 nyloc,8,b25s105
+hydraulic,"NBR70 O-ring set for 25 bore (piston, 2x static, 2x rod, wiper)",2,b25s105
 hydraulic,"Al honed barrel 32 ID x 36 OD, cut 91.0 mm",2,b32s75
 hydraulic,"Hardened chromed rod d12, cut 146.0 mm, turn M8 piston end + M8 outer end",2,b32s75
 hydraulic,M3 A4 threaded rod 135.0 mm (tie rods) + 8x M3 nyloc,8,b32s75

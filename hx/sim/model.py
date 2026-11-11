@@ -133,7 +133,8 @@ def _visual_geoms(cfg: RobotConfig, b) -> list[str]:
     return out
 
 
-def build_mjcf(cfg: RobotConfig, payload_kg: float = 0.0, floor: bool = True) -> str:
+def build_mjcf(cfg: RobotConfig, payload_kg: float = 0.0, floor: bool = True, meshes: dict | None = None) -> str:
+    """meshes: optional {body: (stl_path, rgba)} visual CAD meshes (videos); physics is unchanged."""
     g = cfg["geometry"]
     sim = cfg["sim"]
     mm = body_mass_model(cfg, payload_kg)
@@ -162,8 +163,13 @@ def build_mjcf(cfg: RobotConfig, payload_kg: float = 0.0, floor: bool = True) ->
             I = 0.5 * (I + I.T) + 1e-6 * np.eye(3)
             lines.append(f'{ind}  <inertial pos="{_fmt(e["com"])}" mass="{e["mass"]:.5f}" '
                          f'fullinertia="{I[0,0]:.6g} {I[1,1]:.6g} {I[2,2]:.6g} {I[0,1]:.6g} {I[0,2]:.6g} {I[1,2]:.6g}"/>')
-        for gx in _visual_geoms(cfg, b):
-            lines.append(f"{ind}  {gx}")
+        if meshes and name in meshes:
+            rgba = " ".join(f"{c:.3f}" for c in meshes[name][1])
+            lines.append(f'{ind}  <geom type="mesh" mesh="viz_{name}" contype="0" conaffinity="0" group="1" '
+                         f'mass="0" rgba="{rgba}"/>')
+        else:
+            for gx in _visual_geoms(cfg, b):
+                lines.append(f"{ind}  {gx}")
         if b.base == "foot":
             cx = foot["length"] / 2 - foot["heel"]
             cz = -g["ankle_height"] + foot["thickness"] / 2
@@ -189,8 +195,13 @@ def build_mjcf(cfg: RobotConfig, payload_kg: float = 0.0, floor: bool = True) ->
         lo, hi = j.range_rad
         acts.append(f'    <position name="{j.name}" joint="{j.name}" kp="{kp:.1f}" kv="{kv:.2f}" '
                     f'ctrlrange="{lo:.5f} {hi:.5f}" forcerange="-400 400"/>')
+    sky = ('    <texture name="sky" type="skybox" builtin="gradient" rgb1="0.86 0.90 0.95" rgb2="0.36 0.43 0.52" '
+           'width="512" height="512"/>\n') if meshes else ""
+    mesh_assets = sky + "".join(f'    <mesh name="viz_{k}" file="{v[0]}" scale="0.001 0.001 0.001"/>\n'
+                          for k, v in (meshes or {}).items())
+    compiler_extra = ' inertiafromgeom="false"' if meshes else ""
     xml = f"""<mujoco model={quoteattr(cfg['meta']['name'])}>
-  <compiler angle="radian" autolimits="true"/>
+  <compiler angle="radian" autolimits="true"{compiler_extra}/>
   <option timestep="{sim['timestep']}" integrator="implicitfast" gravity="0 0 -9.81">
     <flag warmstart="enable"/>
   </option>
@@ -201,7 +212,7 @@ def build_mjcf(cfg: RobotConfig, payload_kg: float = 0.0, floor: bool = True) ->
   <asset>
     <texture name="grid" type="2d" builtin="checker" rgb1=".85 .85 .85" rgb2=".7 .7 .7" width="512" height="512"/>
     <material name="grid" texture="grid" texrepeat="8 8"/>
-  </asset>
+{mesh_assets}  </asset>
   <worldbody>
     <light pos="0 0 3" dir="0 0 -1" diffuse="0.8 0.8 0.8"/>
     {'<geom name="floor" type="plane" size="10 10 0.1" material="grid" friction="1.0 0.02 0.002"/>' if floor else ''}

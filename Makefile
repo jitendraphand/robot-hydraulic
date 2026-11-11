@@ -2,9 +2,9 @@
 PY ?= python3
 FW := firmware
 
-.PHONY: all loop gen cad render fw-test fw-esp32 sil docs qa qa-fast test clean
+.PHONY: all loop gen cad render videos fw-test fw-esp32 sil docs qa qa-fast test clean
 
-all: loop gen render fw-test sil docs qa-fast test
+all: loop gen render fw-test sil videos docs qa-fast test
 
 loop:            ## recursive design loop: sim -> sizing -> CAD -> mass properties (until converged)
 	$(PY) -m hx loop
@@ -14,6 +14,8 @@ cad:             ## STLs, plates, print plan, BOM, mass properties
 	$(PY) -m hx cad
 render:          ## assembly renders + parts sheet
 	$(PY) -m hx render
+videos:          ## MuJoCo task videos with CAD meshes -> docs/video (needs libegl1/libosmesa6 + ffmpeg)
+	MUJOCO_GL=egl $(PY) -m hx video
 fw-test:         ## host build (-Werror) + unit tests of the firmware core
 	cmake -S $(FW) -B $(FW)/build -DCMAKE_BUILD_TYPE=Release
 	cmake --build $(FW)/build -j4
