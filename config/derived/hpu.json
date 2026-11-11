@@ -1,0 +1,39 @@
+{
+  "accumulator_usable_l": 0.08653846153846156,
+  "arm_lift": {
+    "hydraulic_power_w": 57.409736033360474,
+    "mean_flow_lpm": 2.2963894413344192,
+    "min_supply_bar": 13.48452470076863,
+    "peak_flow_lpm": 6.169984157529782,
+    "pump_duty": 0.2970606629143214
+  },
+  "pump_flow_lpm": 7.65,
+  "single_leg": {
+    "hydraulic_power_w": 36.10863663154552,
+    "mean_flow_lpm": 1.4443454652618208,
+    "min_supply_bar": 13.498187007724349,
+    "peak_flow_lpm": 4.699104440972836,
+    "pump_duty": 0.18386491557223264
+  },
+  "squat": {
+    "hydraulic_power_w": 52.707682318558206,
+    "mean_flow_lpm": 2.108307292742328,
+    "min_supply_bar": 13.491988392554845,
+    "peak_flow_lpm": 4.3873863721342525,
+    "pump_duty": 0.23802716225875625
+  },
+  "stand": {
+    "hydraulic_power_w": 10.539326091204696,
+    "mean_flow_lpm": 0.4215730436481878,
+    "min_supply_bar": 14.14985015637741,
+    "peak_flow_lpm": 0.44100865600101524,
+    "pump_duty": 0.0
+  },
+  "walk": {
+    "hydraulic_power_w": 131.29659043455146,
+    "mean_flow_lpm": 5.251863617382058,
+    "min_supply_bar": 13.45950201430555,
+    "peak_flow_lpm": 16.065165582407342,
+    "pump_duty": 0.6697916666666667
+  }
+}

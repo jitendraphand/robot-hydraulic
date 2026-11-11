@@ -1,0 +1,352 @@
+{
+  "ankle_pitch": {
+    "bore": 32,
+    "cap_neg_max_nm": 53.99708570900768,
+    "cap_neg_min_nm": 37.197396168071926,
+    "cap_pos_max_nm": 62.83297246139076,
+    "cap_pos_min_nm": 43.28424281375643,
+    "cylinder": {
+      "bore_mm": 32.0,
+      "dead_mm": 115.0,
+      "rod_mm": 12.0,
+      "stroke_mm": 100.0,
+      "tube_od_mm": 36.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 0.0009635998469443435,
+    "joint": "ankle_pitch",
+    "joint_clearance_mm": 71.27413403397057,
+    "l_max": 0.3122043559743629,
+    "l_min": 0.21700096359984694,
+    "link_clearance_mm": 4.09460607715291,
+    "linkage": {
+      "axis": "y",
+      "child": [
+        0.06431264206827653,
+        -0.052,
+        -0.019998903891275295
+      ],
+      "parent": [
+        0.09499350921216163,
+        -0.052,
+        0.24999948631695176
+      ]
+    },
+    "mass_kg": 0.48981152537838707,
+    "max_moment_arm_mm": 67.35033779894447,
+    "min_moment_arm_mm": 46.39615572332425,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 25.004897953520384,
+    "peak_flow_lpm": 4.755178553064552,
+    "penalty": 0.0,
+    "ratio_demand": 1.6714671291529224,
+    "ratio_floor": 4.250298280099844,
+    "stroke_mm": 100,
+    "x": [
+      0.09499350921216163,
+      0.24999948631695176,
+      0.06431264206827653,
+      -0.019998903891275295
+    ]
+  },
+  "ankle_roll": {
+    "bore": 20,
+    "cap_neg_max_nm": 25.76863140443953,
+    "cap_neg_min_nm": 23.38505613787146,
+    "cap_pos_max_nm": 21.645650379729208,
+    "cap_pos_min_nm": 19.643447155812023,
+    "cylinder": {
+      "bore_mm": 20.0,
+      "dead_mm": 115.0,
+      "rod_mm": 8.0,
+      "stroke_mm": 55.0,
+      "tube_od_mm": 23.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 0.0010684524315868887,
+    "joint": "ankle_roll",
+    "joint_clearance_mm": 65.15719509065163,
+    "l_max": 0.22014929027651345,
+    "l_min": 0.1720010684524316,
+    "link_clearance_mm": null,
+    "linkage": {
+      "axis": "x",
+      "child": [
+        -0.05,
+        0.06999999828195388,
+        -0.01000001339982702
+      ],
+      "parent": [
+        -0.05,
+        0.07499999645405814,
+        0.18644767703612186
+      ]
+    },
+    "mass_kg": 0.2391557541846145,
+    "max_moment_arm_mm": 70.71043215051036,
+    "min_moment_arm_mm": 64.1697806693743,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 14.418024529732207,
+    "peak_flow_lpm": 1.0454836098047424,
+    "penalty": 0.0,
+    "ratio_demand": 1.1677063583107616,
+    "ratio_floor": 3.8926369292238894,
+    "stroke_mm": 55,
+    "x": [
+      0.07499999645405814,
+      0.18644767703612186,
+      0.06999999828195388,
+      -0.01000001339982702
+    ]
+  },
+  "elbow": {
+    "bore": 20,
+    "cap_neg_max_nm": 8.723023935533265,
+    "cap_neg_min_nm": 4.373228095754915,
+    "cap_pos_max_nm": 7.327340105847942,
+    "cap_pos_min_nm": 3.673511600434128,
+    "cylinder": {
+      "bore_mm": 20.0,
+      "dead_mm": 115.0,
+      "rod_mm": 8.0,
+      "stroke_mm": 40.0,
+      "tube_od_mm": 23.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 0.0005363524900620781,
+    "joint": "elbow",
+    "joint_clearance_mm": 36.9336509522785,
+    "l_max": 0.19299946364750994,
+    "l_min": 0.15700062626739578,
+    "link_clearance_mm": null,
+    "linkage": {
+      "axis": "y",
+      "child": [
+        -0.022869101216715062,
+        0.062,
+        0.00706890564693155
+      ],
+      "parent": [
+        -0.078128260719088,
+        0.062,
+        0.15402339499464013
+      ]
+    },
+    "mass_kg": 0.22175172358280876,
+    "max_moment_arm_mm": 23.936420311190307,
+    "min_moment_arm_mm": 12.000359805306056,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 4.360151808614987,
+    "peak_flow_lpm": 0.8413585496893431,
+    "penalty": 0.0,
+    "ratio_demand": 1.2701666382376318,
+    "ratio_floor": 2.4071977056105753,
+    "stroke_mm": 40,
+    "x": [
+      -0.078128260719088,
+      0.15402339499464013,
+      -0.022869101216715062,
+      0.00706890564693155
+    ]
+  },
+  "hip_pitch": {
+    "bore": 16,
+    "cap_neg_max_nm": 35.19333781607045,
+    "cap_neg_min_nm": 8.245087348534847,
+    "cap_pos_max_nm": 30.244274685685546,
+    "cap_pos_min_nm": 7.085621940147133,
+    "cylinder": {
+      "bore_mm": 16.0,
+      "dead_mm": 115.0,
+      "rod_mm": 6.0,
+      "stroke_mm": 140.0,
+      "tube_od_mm": 19.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 0.001826723151023349,
+    "joint": "hip_pitch",
+    "joint_clearance_mm": 10.851465725855872,
+    "l_max": 0.392998173276849,
+    "l_min": 0.25700388392139534,
+    "link_clearance_mm": null,
+    "linkage": {
+      "axis": "y",
+      "child": [
+        -0.012808164464335428,
+        -0.058,
+        -0.21979712154225645
+      ],
+      "parent": [
+        -0.16530265322146742,
+        -0.058,
+        0.06920918762642286
+      ]
+    },
+    "mass_kg": 0.2714218428164636,
+    "max_moment_arm_mm": 150.89422622118917,
+    "min_moment_arm_mm": 35.35146572585587,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 10.564202385611999,
+    "peak_flow_lpm": 1.5490541716503745,
+    "penalty": 0.0,
+    "ratio_demand": 1.4681103482938844,
+    "ratio_floor": 1.9163428885344376,
+    "stroke_mm": 140,
+    "x": [
+      -0.16530265322146742,
+      0.06920918762642286,
+      -0.012808164464335428,
+      -0.21979712154225645
+    ]
+  },
+  "hip_roll": {
+    "bore": 25,
+    "cap_neg_max_nm": 67.80069874251409,
+    "cap_neg_min_nm": 46.58558250016634,
+    "cap_pos_max_nm": 56.95258694371183,
+    "cap_pos_min_nm": 39.131889300139726,
+    "cylinder": {
+      "bore_mm": 25.0,
+      "dead_mm": 115.0,
+      "rod_mm": 10.0,
+      "stroke_mm": 75.0,
+      "tube_od_mm": 29.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 6.704610988790549e-05,
+    "joint": "hip_roll",
+    "joint_clearance_mm": 53.26041012810584,
+    "l_max": 0.2629999329538901,
+    "l_min": 0.19200008455608417,
+    "link_clearance_mm": null,
+    "linkage": {
+      "axis": "x",
+      "child": [
+        -0.085,
+        0.09910704981793746,
+        -0.08946832196350683
+      ],
+      "parent": [
+        -0.085,
+        0.09486920727135983,
+        0.1499826580727943
+      ]
+    },
+    "mass_kg": 0.33804775021211003,
+    "max_moment_arm_mm": 119.07107696502695,
+    "min_moment_arm_mm": 81.81324945342641,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 21.401789659506733,
+    "peak_flow_lpm": 1.7500323653630239,
+    "penalty": 0.0,
+    "ratio_demand": 1.3203184562626427,
+    "ratio_floor": 5.224114421231823,
+    "stroke_mm": 75,
+    "x": [
+      0.09486920727135983,
+      0.1499826580727943,
+      0.09910704981793746,
+      -0.08946832196350683
+    ]
+  },
+  "knee": {
+    "bore": 25,
+    "cap_neg_max_nm": 37.85907960622473,
+    "cap_neg_min_nm": 17.605582364573376,
+    "cap_pos_max_nm": 45.07033286455326,
+    "cap_pos_min_nm": 20.959026624492115,
+    "cylinder": {
+      "bore_mm": 25.0,
+      "dead_mm": 115.0,
+      "rod_mm": 10.0,
+      "stroke_mm": 115.0,
+      "tube_od_mm": 29.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 0.021715673126978044,
+    "joint": "knee",
+    "joint_clearance_mm": 49.77398518365647,
+    "l_max": 0.34294970423163484,
+    "l_min": 0.232021715673127,
+    "link_clearance_mm": 11.160928952637269,
+    "linkage": {
+      "axis": "y",
+      "child": [
+        0.07768794463739492,
+        0.0,
+        0.015154473073166988
+      ],
+      "parent": [
+        0.13498640442473894,
+        0.0,
+        0.2399898863200563
+      ]
+    },
+    "mass_kg": 0.4067952222506155,
+    "max_moment_arm_mm": 79.15217944486348,
+    "min_moment_arm_mm": 36.80808485166964,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 20.630262708371674,
+    "peak_flow_lpm": 5.853282816348652,
+    "penalty": 0.0,
+    "ratio_demand": 1.1919775486392254,
+    "ratio_floor": 2.4382464057701445,
+    "stroke_mm": 115,
+    "x": [
+      0.13498640442473894,
+      0.2399898863200563,
+      0.07768794463739492,
+      0.015154473073166988
+    ]
+  },
+  "shoulder_pitch": {
+    "bore": 32,
+    "cap_neg_max_nm": 35.92182157457741,
+    "cap_neg_min_nm": 11.19514003024832,
+    "cap_pos_max_nm": 30.870315415652453,
+    "cap_pos_min_nm": 9.620823463494649,
+    "cylinder": {
+      "bore_mm": 32.0,
+      "dead_mm": 115.0,
+      "rod_mm": 12.0,
+      "stroke_mm": 75.0,
+      "tube_od_mm": 36.0
+    },
+    "feasible": true,
+    "fit_margin_mm": 0.00010402715922182282,
+    "joint": "shoulder_pitch",
+    "joint_clearance_mm": 51.44388048834404,
+    "l_max": 0.2629980949313864,
+    "l_min": 0.19200010402715922,
+    "link_clearance_mm": null,
+    "linkage": {
+      "axis": "y",
+      "child": [
+        0.03351820919111961,
+        -0.057,
+        -0.01895054270307868
+      ],
+      "parent": [
+        0.0014512012699778934,
+        -0.057,
+        -0.2288970552028296
+      ]
+    },
+    "mass_kg": 0.4303560990110368,
+    "max_moment_arm_mm": 38.50441452356604,
+    "min_moment_arm_mm": 12.000012624056916,
+    "moment_sign_flip": false,
+    "peak_demand_nm": 8.829608833574696,
+    "peak_flow_lpm": 2.3296208440719743,
+    "penalty": 0.0,
+    "ratio_demand": 1.3099699618391814,
+    "ratio_floor": 3.1131692871865884,
+    "stroke_mm": 75,
+    "x": [
+      0.0014512012699778934,
+      -0.2288970552028296,
+      0.03351820919111961,
+      -0.01895054270307868
+    ]
+  }
+}

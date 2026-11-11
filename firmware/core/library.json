@@ -1,0 +1,11 @@
+{
+  "name": "hxcore",
+  "version": "0.1.0",
+  "description": "HX-1 portable control core (joint controller, supervisor, HPU, protocol)",
+  "frameworks": "*",
+  "platforms": "*",
+  "build": {
+    "srcDir": "src",
+    "includeDir": "include"
+  }
+}

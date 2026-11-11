@@ -1,0 +1,121 @@
+# HX-1 electronics: board pin maps + system harness.
+# The netlist generator (hx/electronics/netlist.py) expands these into full
+# component/pin/net lists, runs the ERC, and emits pins.h + wiring docs.
+
+mcu: "ESP32-S3-WROOM-1-N8 on ESP32-S3-DevKitC-1 (no PSRAM, GPIO35-37 free but unused)"
+
+boards:
+  limb:                     # identical board for leg_L, leg_R, arm_L, arm_R
+    qty: 4
+    pins:
+      CAN_TX: 4
+      CAN_RX: 5
+      SPI_SCLK: 12
+      SPI_MOSI: 11
+      SPI_MISO: 13
+      ENC_CS: [14, 15, 16, 17, 18, 21]     # up to 6 AS5048A (one per hydraulic joint + spare)
+      ADC_CS: [10, 9]                      # 2x MCP3208 -> 16 analog channels (12 pressure + spare)
+      PWM: [39, 40, 41, 42, 47, 1, 6, 7]   # PWM0-4 valve servos (6 V), PWM5-7 joint servos (7.4 V)
+      ESTOP_SENSE: 2
+      LED: 8
+    adc_channels: 16
+    encoders: 6
+    pwm_channels: 8
+
+  hub:                      # torso: HPU, IMU, neck, power monitoring
+    qty: 1
+    pins:
+      CAN_TX: 4
+      CAN_RX: 5
+      SPI_SCLK: 12
+      SPI_MOSI: 11
+      SPI_MISO: 13
+      ADC_CS: [10]                         # supply + accumulator pressure, spare
+      I2C_SDA: 41
+      I2C_SCL: 42
+      IMU_INT: 40
+      IMU_RST: 39
+      ESC_PWM: 21
+      DUMP_VALVE: 47                       # NO dump valve: HIGH = closed (energised)
+      FAN_PWM: 18
+      NECK_PWM: [14, 15]
+      VBAT_ADC: 1                          # ADC1_CH0
+      IBAT_ADC: 6                          # ADC1_CH5
+      NTC_ADC: 7                           # ADC1_CH6
+      LEVEL_SW: 16
+      ESTOP_SENSE: 17
+      LED: 8
+
+can_buses:                  # two classic-CAN buses keep load < 40 % (see QA)
+  CAN_A: {nodes: [leg_L, leg_R], adapter: "USB-CAN (gs_usb/candleLight) #1"}
+  CAN_B: {nodes: [arm_L, arm_R, hub], adapter: "USB-CAN (gs_usb/candleLight) #2"}
+can_rates_hz:
+  setpoint: 100
+  state: 100
+  status: 20
+  hpu: 20
+  imu: 200
+  sync: 100
+
+# ---------------------------------------------------------------- power tree
+power:
+  battery: {name: 2x 6S 5 Ah LiPo parallel, v_nom: 22.2, v_max: 25.2, v_min: 19.8, capacity_ah: 10.0, c_rating: 20}
+  main_fuse_a: 60
+  estop_contactor: {name: 24 V coil automotive relay 80 A (NO), coil_a: 0.15}
+  regulators:
+    buck_6v_15a:     {vin: [9, 36], vout: 6.0, imax: 15, eff: 0.92, estop: false, feeds: VALVE_6V}
+    buck_7v4_30a:    {vin: [9, 36], vout: 7.4, imax: 30, eff: 0.92, estop: true,  feeds: SERVO_7V4}
+    buck_5v_6a:      {vin: [9, 36], vout: 5.0, imax: 6,  eff: 0.90, estop: false, feeds: LOGIC_5V}
+    buck_5v_6a_pi:   {vin: [9, 36], vout: 5.1, imax: 6,  eff: 0.90, estop: false, feeds: BRAIN_5V}
+  loads:                    # rail: [name, qty, nominal A, peak A]
+    LOGIC_5V:
+      - ["ESP32-S3 node (incl. LDO, CAN, ADC)", 5, 0.12, 0.25]
+      - ["pressure transducer", 30, 0.006, 0.008]
+      - ["AS5048A encoder", 14, 0.015, 0.02]
+      - ["IMU", 1, 0.02, 0.03]
+      - ["cooling fan", 1, 0.15, 0.25]
+    BRAIN_5V:
+      - ["Raspberry Pi 5 + 2x USB-CAN", 1, 1.8, 3.5]
+    VALVE_6V:
+      - ["valve micro servo", 14, 0.08, 0.9]
+    SERVO_7V4:
+      - ["HV-150 servo (hip yaw)", 2, 0.25, 8.0]
+      - ["HV-60 servo (shoulder roll)", 2, 0.15, 5.0]
+      - ["HV-35 servo (shoulder yaw)", 2, 0.10, 3.5]
+      - ["MG996R (neck, gripper)", 4, 0.10, 2.5]
+    PUMP_BAT:
+      - ["BLDC pump motor via ESC", 1, 10.0, 26.0]
+      - ["dump valve coil 24 V", 1, 0.25, 0.25]
+  simultaneity:             # fraction of summed peak current that can coincide
+    VALVE_6V: 0.5
+    SERVO_7V4: 0.5
+    LOGIC_5V: 1.0
+    BRAIN_5V: 1.0
+    PUMP_BAT: 1.0
+
+# ---------------------------------------------------------------- harness
+# AWG ampacity (chassis wiring, PVC/silicone, short runs) used by the QA
+awg_ampacity: {8: 73, 10: 55, 12: 41, 14: 32, 16: 22, 18: 16, 20: 11, 22: 7, 24: 3.5, 26: 2.2}
+harness:                    # from -> to, awg, length m, connector, fuse A (inline), design current A
+  - {id: W01, from: BATTERY, to: MAIN_FUSE, awg: 8, len: 0.15, conn: XT90, fuse: null, i: 40}
+  - {id: W02, from: MAIN_FUSE, to: ESTOP_CONTACTOR, awg: 8, len: 0.2, conn: ring M5, fuse: 60, i: 40}
+  - {id: W03, from: ESTOP_CONTACTOR, to: PDB_ACT, awg: 8, len: 0.15, conn: ring M5, fuse: null, i: 40}
+  - {id: W04, from: MAIN_FUSE, to: PDB_LOGIC, awg: 16, len: 0.2, conn: XT30, fuse: 10, i: 4}
+  - {id: W05, from: PDB_ACT, to: ESC, awg: 12, len: 0.3, conn: XT60, fuse: 35, i: 26}
+  - {id: W06, from: PDB_ACT, to: buck_7v4_30a, awg: 14, len: 0.15, conn: XT30, fuse: 15, i: 8}
+  - {id: W07, from: PDB_LOGIC, to: buck_6v_15a, awg: 16, len: 0.15, conn: XT30, fuse: 7.5, i: 3}
+  - {id: W08, from: PDB_LOGIC, to: buck_5v_6a, awg: 18, len: 0.15, conn: XT30, fuse: 3, i: 1}
+  - {id: W09, from: PDB_LOGIC, to: buck_5v_6a_pi, awg: 18, len: 0.15, conn: XT30, fuse: 3, i: 1.2}
+  - {id: W10, from: buck_7v4_30a, to: LEG_SERVO_L, awg: 16, len: 0.6, conn: XT30, fuse: 10, i: 4}
+  - {id: W11, from: buck_7v4_30a, to: LEG_SERVO_R, awg: 16, len: 0.6, conn: XT30, fuse: 10, i: 4}
+  - {id: W12, from: buck_7v4_30a, to: ARM_SERVO_L, awg: 18, len: 0.5, conn: XT30, fuse: 7.5, i: 5.5}
+  - {id: W13, from: buck_7v4_30a, to: ARM_SERVO_R, awg: 18, len: 0.5, conn: XT30, fuse: 7.5, i: 5.5}
+  - {id: W14, from: buck_6v_15a, to: LIMB_VALVE_L_LEG, awg: 18, len: 0.6, conn: JST-VH 2p, fuse: 5, i: 2.4}
+  - {id: W15, from: buck_6v_15a, to: LIMB_VALVE_R_LEG, awg: 18, len: 0.6, conn: JST-VH 2p, fuse: 5, i: 2.4}
+  - {id: W16, from: buck_6v_15a, to: LIMB_VALVE_ARMS, awg: 18, len: 0.5, conn: JST-VH 2p, fuse: 5, i: 1.9}
+  - {id: W17, from: buck_5v_6a, to: NODES_5V, awg: 20, len: 1.2, conn: JST-XH 4p (CAN+5V), fuse: 3, i: 1.6}
+  - {id: W18, from: PDB_ACT, to: DUMP_VALVE, awg: 22, len: 0.3, conn: JST-XH 2p, fuse: 1, i: 0.25}
+  - {id: W19, from: ESTOP_BUTTON, to: CONTACTOR_COIL, awg: 22, len: 0.6, conn: JST-XH 2p, fuse: 0.5, i: 0.15}
+  - {id: W20, from: NODE, to: ENCODER, awg: 26, len: 0.6, conn: JST-GH 6p (shielded), fuse: null, i: 0.02}
+  - {id: W21, from: NODE, to: PRESSURE_SENSOR, awg: 26, len: 0.6, conn: JST-GH 3p, fuse: null, i: 0.01}
+  - {id: W22, from: NODE, to: VALVE_SERVO, awg: 22, len: 0.5, conn: Futaba 3p, fuse: null, i: 0.9}

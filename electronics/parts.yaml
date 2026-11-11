@@ -1,0 +1,162 @@
+# Component library for the HX-1 netlists (pin capabilities drive the ERC).
+#
+# pin kinds:  pwr_in (vmin..vmax), pwr_out (v), gnd, io (vmax abs), in, out,
+#             analog_in, od (open drain), bus (bidirectional differential), passive
+# esp32s3 pins are described programmatically in hx/electronics/netlist.py
+
+SN65HVD230:            # 3.3 V CAN transceiver
+  desc: CAN transceiver 3.3 V
+  ic: true
+  pins:
+    VCC: {kind: pwr_in, vmin: 3.0, vmax: 3.6}
+    GND: {kind: gnd}
+    D:   {kind: in, vmax: 5.5}
+    R:   {kind: out, v: 3.3}
+    CANH: {kind: bus, vmax: 16}
+    CANL: {kind: bus, vmax: 16}
+    RS:  {kind: in, vmax: 5.5}
+MCP3208:               # 12-bit 8-ch SPI ADC, run at 3.3 V
+  desc: 12-bit SPI ADC
+  ic: true
+  pins:
+    VDD: {kind: pwr_in, vmin: 2.7, vmax: 5.5}
+    VREF: {kind: pwr_in, vmin: 0.25, vmax: 5.5}
+    AGND: {kind: gnd}
+    DGND: {kind: gnd}
+    CLK: {kind: in, vmax: 3.6}
+    DIN: {kind: in, vmax: 3.6}
+    DOUT: {kind: out, v: 3.3}
+    CS: {kind: in, vmax: 3.6}
+    CH0: {kind: analog_in, vmax: 3.6}
+    CH1: {kind: analog_in, vmax: 3.6}
+    CH2: {kind: analog_in, vmax: 3.6}
+    CH3: {kind: analog_in, vmax: 3.6}
+    CH4: {kind: analog_in, vmax: 3.6}
+    CH5: {kind: analog_in, vmax: 3.6}
+    CH6: {kind: analog_in, vmax: 3.6}
+    CH7: {kind: analog_in, vmax: 3.6}
+AS5048A_BOARD:         # magnetic encoder breakout, 3.3 V mode
+  desc: 14-bit magnetic angle sensor (SPI)
+  ic: true
+  pins:
+    VDD3V: {kind: pwr_in, vmin: 3.0, vmax: 3.6}
+    GND: {kind: gnd}
+    CSN: {kind: in, vmax: 3.6}
+    CLK: {kind: in, vmax: 3.6}
+    MOSI: {kind: in, vmax: 3.6}
+    MISO: {kind: out, v: 3.3}
+PRESSURE_SENSOR:       # 0-30 bar, 0.5-4.5 V ratiometric, 5 V supply
+  desc: pressure transducer 0.5-4.5 V
+  pins:
+    VCC: {kind: pwr_in, vmin: 4.75, vmax: 5.25}
+    GND: {kind: gnd}
+    OUT: {kind: out, v: 4.5}
+DIVIDER:               # 10k/20k divider (ratio 0.6667) + 10 nF RC filter
+  desc: resistor divider 10k/20k + 10nF
+  ratio: 0.6667
+  pins:
+    IN: {kind: passive_in}
+    OUT: {kind: passive_out}
+    GND: {kind: gnd}
+SERVO:                 # hobby/industrial servo, 3-pin
+  desc: PWM servo
+  pins:
+    V: {kind: pwr_in, vmin: 4.8, vmax: 8.4}
+    GND: {kind: gnd}
+    SIG: {kind: in, vmax: 5.5, vih: 2.0}
+LDO_3V3:               # AP2112K-3.3 600 mA
+  desc: 3.3 V LDO 600 mA
+  ic: true
+  imax: 0.6
+  pins:
+    VIN: {kind: pwr_in, vmin: 3.5, vmax: 6.0}
+    GND: {kind: gnd}
+    VOUT: {kind: pwr_out, v: 3.3}
+CAP:
+  desc: ceramic capacitor
+  pins:
+    A: {kind: passive}
+    B: {kind: passive}
+OPTO_ESTOP:            # PC817 + 4.7k: senses 22 V actuator bus, output to MCU (pull-up 10k to 3V3)
+  desc: e-stop sense optocoupler
+  pins:
+    ANODE: {kind: pwr_in, vmin: 10, vmax: 30}
+    CATHODE: {kind: gnd}
+    COLL: {kind: od}
+    EMIT: {kind: gnd}
+RES_PULLUP:
+  desc: 10k pull-up
+  pins:
+    A: {kind: passive}
+    B: {kind: passive}
+JST_CAN:               # 4-pin CAN daisy chain: CANH CANL GND 5V-logic
+  desc: CAN connector (in/out)
+  pins:
+    CANH: {kind: bus, vmax: 16}
+    CANL: {kind: bus, vmax: 16}
+    GND: {kind: gnd}
+    V5: {kind: passive}
+TERM_120:
+  desc: 120R split termination (jumper)
+  pins:
+    A: {kind: passive}
+    B: {kind: passive}
+LED:
+  desc: status LED + 330R
+  pins:
+    A: {kind: in, vmax: 3.6}
+    K: {kind: gnd}
+POWER_IN:              # board power entry
+  desc: power entry connector
+  pins:
+    V5: {kind: pwr_out, v: 5.0}
+    VSERVO: {kind: pwr_out, v: 7.4}
+    VVALVE: {kind: pwr_out, v: 6.0}
+    VBAT_SENSE: {kind: pwr_out, v: 22.2}
+    GND: {kind: gnd}
+ESC:
+  desc: BLDC ESC signal input
+  pins:
+    SIG: {kind: in, vmax: 5.5, vih: 2.0}
+    GND: {kind: gnd}
+MOSFET_LOWSIDE:        # AO3400A + gate R + pulldown + flyback diode module
+  desc: low-side switch for dump valve / fan
+  pins:
+    GATE: {kind: in, vmax: 12}
+    DRAIN: {kind: passive}
+    SOURCE: {kind: gnd}
+IMU_BNO085:
+  desc: 9-axis IMU (I2C)
+  ic: true
+  pins:
+    VIN: {kind: pwr_in, vmin: 3.0, vmax: 3.6}
+    GND: {kind: gnd}
+    SDA: {kind: od}
+    SCL: {kind: od}
+    INT: {kind: out, v: 3.3}
+    RST: {kind: in, vmax: 3.6}
+NTC_DIVIDER:
+  desc: 10k NTC + 10k divider from 3V3
+  pins:
+    VTOP: {kind: passive}
+    OUT: {kind: passive_out}
+    GND: {kind: gnd}
+VBAT_DIVIDER:          # 100k / 12k -> 25.2 V maps to 2.7 V
+  desc: battery voltage divider 100k/12k
+  ratio: 0.1071
+  pins:
+    IN: {kind: passive_in}
+    OUT: {kind: passive_out}
+    GND: {kind: gnd}
+CURRENT_SENSOR:        # ACS758-100B on 3.3 V (ratiometric, 0..3.3 V)
+  desc: hall current sensor 100 A
+  ic: true
+  pins:
+    VCC: {kind: pwr_in, vmin: 3.0, vmax: 5.5}
+    GND: {kind: gnd}
+    OUT: {kind: out, v: 3.3}
+LEVEL_SWITCH:
+  desc: reservoir float switch (to GND, MCU pull-up)
+  pins:
+    A: {kind: od}
+    B: {kind: gnd}

@@ -1,0 +1,46 @@
+# HX-1 requirements. Every requirement must be verified by >= 1 QA check
+# (traceability is itself a QA check). IDs are stable - never renumber.
+system:
+  SYS-001: "The robot is a biped humanoid with >= 12 actuated leg DOF and >= 4 arm DOF."
+  SYS-002: "Total mass (incl. battery and HPU, no payload) <= 25 kg."
+  SYS-003: "The robot walks a straight ZMP gait (step 0.08 m / 0.8 s) in simulation without falling."
+  SYS-004: "The robot can squat to the configured knee angle and balance on one leg in simulation."
+  SYS-005: "Each arm lifts a 1 kg payload to 87 deg shoulder flexion (3 deg short of horizontal: soft-limit margin) in simulation."
+  SYS-006: "Every design artefact is generated from config/robot.yaml and is up to date with it."
+  SYS-007: "The coupled design (masses -> sim -> sizing -> CAD) converges in the design loop."
+mechanical:
+  MEC-001: "Every printed part fits the Elegoo Neptune 4 Max build volume (420 x 420 x 480 mm) with margin."
+  MEC-002: "Every exported mesh is a closed 2-manifold (watertight) and non-empty."
+  MEC-003: "No two parts or cylinders interfere in any checked pose (joint limits + simulated frames)."
+  MEC-004: "Each cylinder's pin-to-pin length stays inside its retracted/extended length in every checked pose."
+  MEC-005: "Material print temperatures are within the printer limits; fibre filaments flag a hardened nozzle."
+  MEC-006: "Printed cylinder lugs have bearing-stress safety factor >= qa.cad.min_lug_bearing_sf at relief pressure."
+  MEC-007: "A print plan, bed plates and a BOM incl. cylinder cut list are generated."
+hydraulic:
+  HYD-001: "Every hydraulic joint's torque capacity >= safety factor x simulated demand at every sampled angle."
+  HYD-002: "Every hydraulic joint's capacity over the full range >= range floor x peak demand; moment arm never < min."
+  HYD-003: "Valve flow at supply pressure >= margin x peak joint flow."
+  HYD-004: "Supply pressure stays above the band minimum during every scenario (pump + accumulator sufficient)."
+  HYD-005: "Component pressure ratings: valves >= proof pressure; hoses >= proof pressure; sensors >= trip pressure; trip > relief."
+  HYD-006: "Proof-test procedure (1.5 x relief) is defined for every cylinder before installation."
+control:
+  CTL-001: "Firmware core builds warning-free on host and all unit tests pass."
+  CTL-002: "Node firmware compiles for every node configuration (host API check; ESP32 toolchain in CI)."
+  CTL-003: "Generated firmware headers match the current configuration."
+  CTL-004: "In SIL every hydraulic joint meets step response criteria (overshoot, settling, steady-state error)."
+  CTL-005: "In SIL every hydraulic joint tracks the simulated walk and squat with 15 % feed-forward error within limits, without faults."
+  CTL-006: "Injected sensor and supply faults are detected and the valve locked within qa.sil.max_fault_detect_s."
+  CTL-007: "Heartbeat loss -> HOLD -> IDLE; e-stop line loss -> ESTOP; faults latch until cleared."
+  CTL-008: "The brain refuses to RUN unless all nodes are ARMED and supply pressure is in band."
+electrical:
+  ELE-001: "Netlists pass ERC with zero errors (connectivity, voltage levels, single driver, ESP32-S3 pin rules, decoupling)."
+  ELE-002: "Every regulator is rated >= 1.2 x its rail's peak current; battery peak <= 50 % of C-rating."
+  ELE-003: "Every wire is fuse-protected within its ampacity and carries <= 80 % of ampacity."
+  ELE-004: "CAN bus load <= 60 % on every bus."
+  ELE-005: "Servo joints use <= 50 % of stall torque in every scenario."
+safety:
+  SAF-001: "E-stop removes pump and servo power and dumps the accumulator (NO dump valve); valve spools are centred by always-on logic."
+  SAF-002: "Software over-pressure trip, soft joint limits, following-error and sensor plausibility checks exist and are tested."
+  SAF-003: "Safety documentation (hazards, PPE, proof testing, bring-up gating) exists."
+documentation:
+  DOC-001: "Build, print, wiring, firmware, simulation, QA and safety guides exist."

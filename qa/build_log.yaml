@@ -1,0 +1,1223 @@
+# HX-1 physical build QA log (recursive acceptance).
+# Fill measured values as you build; leave null for 'not done yet'.
+# `python -m hx qa` evaluates every item against criteria derived from robot.yaml.
+# Roll-up: part -> cylinder -> joint -> limb -> system. See docs/08_quality_assurance.md.
+calibration:
+  fit_coupon_PA12-CF:
+    printed: null
+    bearing_fit_ok: null
+    inserts_ok: null
+    note: record the hole size that fits; update joint_hardware.bearing_fit_d
+  fit_coupon_PETG:
+    printed: null
+    bearing_fit_ok: null
+    inserts_ok: null
+    note: record the hole size that fits; update joint_hardware.bearing_fit_d
+  fit_coupon_TPU95A:
+    printed: null
+    bearing_fit_ok: null
+    inserts_ok: null
+    note: record the hole size that fits; update joint_hardware.bearing_fit_d
+parts:
+  pelvis:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  torso:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_hip_yaw_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_hip_yaw_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_hip_roll_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_hip_roll_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_thigh:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_thigh:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_shin:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_shin:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_ankle_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_ankle_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_foot:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_foot:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_shoulder_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_shoulder_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_upper_arm_roll:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_upper_arm_roll:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_upper_arm:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_upper_arm:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_forearm:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_forearm:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  L_hand:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  R_hand:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  neck_link:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  head:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+    bearing_fit_ok: null
+  torso_cover#1:
+    printed: null
+    dimensions_ok: null
+  torso_cover#2:
+    printed: null
+    dimensions_ok: null
+  foot_pad#1:
+    printed: null
+    dimensions_ok: null
+  foot_pad#2:
+    printed: null
+    dimensions_ok: null
+  L_finger:
+    printed: null
+    dimensions_ok: null
+  R_finger:
+    printed: null
+    dimensions_ok: null
+  cyl_b25s100_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s100_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s55_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b20s40_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b16s140_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s70_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s110_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s75_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  encoder_magnet_cap#1:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#2:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#3:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#4:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#5:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#6:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#7:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#8:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#9:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#10:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#11:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#12:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#13:
+    printed: null
+    dimensions_ok: null
+  encoder_magnet_cap#14:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#1:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#2:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#3:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#4:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#5:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#6:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#7:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#8:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#9:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#10:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#11:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#12:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#13:
+    printed: null
+    dimensions_ok: null
+  encoder_bracket#14:
+    printed: null
+    dimensions_ok: null
+  limb_node_enclosure#1:
+    printed: null
+    dimensions_ok: null
+  limb_node_enclosure#2:
+    printed: null
+    dimensions_ok: null
+  limb_node_enclosure#3:
+    printed: null
+    dimensions_ok: null
+  limb_node_enclosure#4:
+    printed: null
+    dimensions_ok: null
+  limb_node_lid#1:
+    printed: null
+    dimensions_ok: null
+  limb_node_lid#2:
+    printed: null
+    dimensions_ok: null
+  limb_node_lid#3:
+    printed: null
+    dimensions_ok: null
+  limb_node_lid#4:
+    printed: null
+    dimensions_ok: null
+  hub_enclosure:
+    printed: null
+    dimensions_ok: null
+  hub_lid:
+    printed: null
+    dimensions_ok: null
+  hose_clip#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#3:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#4:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#5:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#6:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#7:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#8:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#9:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#10:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#11:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#12:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#13:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#14:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#15:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#16:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#17:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#18:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#19:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#20:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#21:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#22:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#23:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#24:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#25:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#26:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#27:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#28:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#29:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#30:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#31:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#32:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#33:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#34:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#35:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#36:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#37:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#38:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#39:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  hose_clip#40:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s75_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s105_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s95_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b32s100_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_blind_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_blind_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_rod_cap#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_rod_cap#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_piston#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_piston#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_valve_saddle#1:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+  cyl_b25s115_valve_saddle#2:
+    printed: null
+    dimensions_ok: null
+    inserts_ok: null
+cylinders:
+  cyl_L_hip_roll:
+    parts:
+    - cyl_b25s70_blind_cap#1
+    - cyl_b25s70_rod_cap#1
+    - cyl_b25s70_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_hip_roll:
+    parts:
+    - cyl_b25s70_blind_cap#2
+    - cyl_b25s70_rod_cap#2
+    - cyl_b25s70_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_L_hip_pitch:
+    parts:
+    - cyl_b16s140_blind_cap#1
+    - cyl_b16s140_rod_cap#1
+    - cyl_b16s140_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_hip_pitch:
+    parts:
+    - cyl_b16s140_blind_cap#2
+    - cyl_b16s140_rod_cap#2
+    - cyl_b16s140_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_L_knee:
+    parts:
+    - cyl_b25s110_blind_cap#1
+    - cyl_b25s110_rod_cap#1
+    - cyl_b25s110_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_knee:
+    parts:
+    - cyl_b25s110_blind_cap#2
+    - cyl_b25s110_rod_cap#2
+    - cyl_b25s110_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_L_ankle_pitch:
+    parts:
+    - cyl_b25s100_blind_cap#1
+    - cyl_b25s100_rod_cap#1
+    - cyl_b25s100_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_ankle_pitch:
+    parts:
+    - cyl_b25s100_blind_cap#2
+    - cyl_b25s100_rod_cap#2
+    - cyl_b25s100_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_L_ankle_roll:
+    parts:
+    - cyl_b20s55_blind_cap#1
+    - cyl_b20s55_rod_cap#1
+    - cyl_b20s55_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_ankle_roll:
+    parts:
+    - cyl_b20s55_blind_cap#2
+    - cyl_b20s55_rod_cap#2
+    - cyl_b20s55_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_L_shoulder_pitch:
+    parts:
+    - cyl_b32s75_blind_cap#1
+    - cyl_b32s75_rod_cap#1
+    - cyl_b32s75_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_shoulder_pitch:
+    parts:
+    - cyl_b32s75_blind_cap#2
+    - cyl_b32s75_rod_cap#2
+    - cyl_b32s75_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_L_elbow:
+    parts:
+    - cyl_b20s40_blind_cap#1
+    - cyl_b20s40_rod_cap#1
+    - cyl_b20s40_piston#1
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+  cyl_R_elbow:
+    parts:
+    - cyl_b20s40_blind_cap#2
+    - cyl_b20s40_rod_cap#2
+    - cyl_b20s40_piston#2
+    proof_test_bar: null
+    proof_hold_min: null
+    external_leak_drops: null
+    breakaway_bar: null
+    internal_leak_ml_min: null
+joints:
+  L_hip_yaw:
+    parts:
+    - pelvis
+    - L_hip_yaw_link
+    range_error_deg: null
+  R_hip_yaw:
+    parts:
+    - pelvis
+    - R_hip_yaw_link
+    range_error_deg: null
+  L_hip_roll:
+    parts:
+    - L_hip_yaw_link
+    - L_hip_roll_link
+    range_error_deg: null
+    cylinder: cyl_L_hip_roll
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_hip_roll:
+    parts:
+    - R_hip_yaw_link
+    - R_hip_roll_link
+    range_error_deg: null
+    cylinder: cyl_R_hip_roll
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_hip_pitch:
+    parts:
+    - L_hip_roll_link
+    - L_thigh
+    range_error_deg: null
+    cylinder: cyl_L_hip_pitch
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_hip_pitch:
+    parts:
+    - R_hip_roll_link
+    - R_thigh
+    range_error_deg: null
+    cylinder: cyl_R_hip_pitch
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_knee:
+    parts:
+    - L_thigh
+    - L_shin
+    range_error_deg: null
+    cylinder: cyl_L_knee
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_knee:
+    parts:
+    - R_thigh
+    - R_shin
+    range_error_deg: null
+    cylinder: cyl_R_knee
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_ankle_pitch:
+    parts:
+    - L_shin
+    - L_ankle_link
+    range_error_deg: null
+    cylinder: cyl_L_ankle_pitch
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_ankle_pitch:
+    parts:
+    - R_shin
+    - R_ankle_link
+    range_error_deg: null
+    cylinder: cyl_R_ankle_pitch
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_ankle_roll:
+    parts:
+    - L_ankle_link
+    - L_foot
+    range_error_deg: null
+    cylinder: cyl_L_ankle_roll
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_ankle_roll:
+    parts:
+    - R_ankle_link
+    - R_foot
+    range_error_deg: null
+    cylinder: cyl_R_ankle_roll
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_shoulder_pitch:
+    parts:
+    - torso
+    - L_shoulder_link
+    range_error_deg: null
+    cylinder: cyl_L_shoulder_pitch
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_shoulder_pitch:
+    parts:
+    - torso
+    - R_shoulder_link
+    range_error_deg: null
+    cylinder: cyl_R_shoulder_pitch
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_shoulder_roll:
+    parts:
+    - L_shoulder_link
+    - L_upper_arm_roll
+    range_error_deg: null
+  R_shoulder_roll:
+    parts:
+    - R_shoulder_link
+    - R_upper_arm_roll
+    range_error_deg: null
+  L_shoulder_yaw:
+    parts:
+    - L_upper_arm_roll
+    - L_upper_arm
+    range_error_deg: null
+  R_shoulder_yaw:
+    parts:
+    - R_upper_arm_roll
+    - R_upper_arm
+    range_error_deg: null
+  L_elbow:
+    parts:
+    - L_upper_arm
+    - L_forearm
+    range_error_deg: null
+    cylinder: cyl_L_elbow
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  R_elbow:
+    parts:
+    - R_upper_arm
+    - R_forearm
+    range_error_deg: null
+    cylinder: cyl_R_elbow
+    encoder_zeroed: null
+    bench_step_overshoot: null
+    bench_ss_error_deg: null
+    fault_lock_ok: null
+  L_gripper:
+    parts:
+    - L_forearm
+    - L_hand
+    range_error_deg: null
+  R_gripper:
+    parts:
+    - R_forearm
+    - R_hand
+    range_error_deg: null
+  neck_yaw:
+    parts:
+    - torso
+    - neck_link
+    range_error_deg: null
+  neck_pitch:
+    parts:
+    - neck_link
+    - head
+    range_error_deg: null
+limbs:
+  leg_L:
+    joints:
+    - L_hip_yaw
+    - L_hip_roll
+    - L_hip_pitch
+    - L_knee
+    - L_ankle_pitch
+    - L_ankle_roll
+    node_flashed: null
+    can_ok: null
+    hold_test_ok: null
+  leg_R:
+    joints:
+    - R_hip_yaw
+    - R_hip_roll
+    - R_hip_pitch
+    - R_knee
+    - R_ankle_pitch
+    - R_ankle_roll
+    node_flashed: null
+    can_ok: null
+    hold_test_ok: null
+  arm_L:
+    joints:
+    - L_shoulder_pitch
+    - L_shoulder_roll
+    - L_shoulder_yaw
+    - L_elbow
+    - L_gripper
+    node_flashed: null
+    can_ok: null
+    hold_test_ok: null
+  arm_R:
+    joints:
+    - R_shoulder_pitch
+    - R_shoulder_roll
+    - R_shoulder_yaw
+    - R_elbow
+    - R_gripper
+    node_flashed: null
+    can_ok: null
+    hold_test_ok: null
+  hub:
+    joints:
+    - neck_yaw
+    - neck_pitch
+    node_flashed: null
+    can_ok: null
+    hold_test_ok: null
+system:
+  HX-1:
+    limbs:
+    - leg_L
+    - leg_R
+    - arm_L
+    - arm_R
+    - hub
+    estop_test_ok: null
+    heartbeat_loss_test_ok: null
+    hpu_pressure_bar: null
+    relief_set_bar: null
+    gantry_stand_ok: null
+    gantry_walk_ok: null

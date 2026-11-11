@@ -1,0 +1,71 @@
+{
+  "can": {
+    "CAN_A": {
+      "frames_per_s": 2540,
+      "load": 0.3429
+    },
+    "CAN_B": {
+      "frames_per_s": 2780,
+      "load": 0.3753
+    }
+  },
+  "counts": {
+    "hub": {
+      "nets": 37,
+      "parts": 33
+    },
+    "limb": {
+      "nets": 56,
+      "parts": 53
+    }
+  },
+  "erc": [],
+  "harness": [],
+  "power": {
+    "battery_max_a": 200.0,
+    "battery_nominal_w": 262.7596618357488,
+    "battery_peak_a": 41.81787683599277,
+    "battery_peak_w": 827.9939613526569,
+    "issues": [],
+    "rails": {
+      "BRAIN_5V": {
+        "imax": 6,
+        "margin": 1.7142857142857142,
+        "nominal_a": 1.8,
+        "peak_a": 3.5,
+        "regulator": "buck_5v_6a_pi",
+        "v": 5.1
+      },
+      "LOGIC_5V": {
+        "imax": 6,
+        "margin": 2.9268292682926833,
+        "nominal_a": 1.16,
+        "peak_a": 2.05,
+        "regulator": "buck_5v_6a",
+        "v": 5.0
+      },
+      "PUMP_BAT": {
+        "nominal_a": 10.25,
+        "peak_a": 26.25,
+        "v": 22.2
+      },
+      "SERVO_7V4": {
+        "imax": 30,
+        "margin": 1.3953488372093024,
+        "nominal_a": 1.4,
+        "peak_a": 21.5,
+        "regulator": "buck_7v4_30a",
+        "v": 7.4
+      },
+      "VALVE_6V": {
+        "imax": 15,
+        "margin": 2.380952380952381,
+        "nominal_a": 1.12,
+        "peak_a": 6.3,
+        "regulator": "buck_6v_15a",
+        "v": 6.0
+      }
+    },
+    "runtime_min": 40.554170018155496
+  }
+}

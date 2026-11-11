@@ -1,0 +1,10 @@
+numpy>=2.0
+scipy>=1.13
+pyyaml>=6.0
+jsonschema>=4.20
+manifold3d>=3.0
+trimesh>=4.0
+mujoco>=3.2
+matplotlib>=3.8
+pytest>=8.0
+# optional, on the robot's Raspberry Pi:  python-can>=4.3

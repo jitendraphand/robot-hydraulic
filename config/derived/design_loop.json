@@ -1,0 +1,120 @@
+{
+  "converged": true,
+  "history": [
+    {
+      "all_feasible": true,
+      "fell": [],
+      "iteration": 1,
+      "mass_change": null,
+      "selection": {
+        "ankle_pitch": [
+          25,
+          100
+        ],
+        "ankle_roll": [
+          20,
+          55
+        ],
+        "elbow": [
+          20,
+          40
+        ],
+        "hip_pitch": [
+          16,
+          140
+        ],
+        "hip_roll": [
+          25,
+          75
+        ],
+        "knee": [
+          25,
+          105
+        ],
+        "shoulder_pitch": [
+          32,
+          75
+        ]
+      },
+      "total_mass_kg": 19.323113713269596,
+      "wall_s": 54.797709941864014
+    },
+    {
+      "all_feasible": true,
+      "fell": [],
+      "iteration": 2,
+      "mass_change": 0.012104726364162115,
+      "selection": {
+        "ankle_pitch": [
+          32,
+          100
+        ],
+        "ankle_roll": [
+          20,
+          55
+        ],
+        "elbow": [
+          20,
+          40
+        ],
+        "hip_pitch": [
+          16,
+          140
+        ],
+        "hip_roll": [
+          25,
+          75
+        ],
+        "knee": [
+          25,
+          110
+        ],
+        "shoulder_pitch": [
+          32,
+          75
+        ]
+      },
+      "total_mass_kg": 19.559880717065322,
+      "wall_s": 53.97097826004028
+    },
+    {
+      "all_feasible": true,
+      "fell": [],
+      "iteration": 3,
+      "mass_change": 0.002152450589677571,
+      "selection": {
+        "ankle_pitch": [
+          32,
+          100
+        ],
+        "ankle_roll": [
+          20,
+          55
+        ],
+        "elbow": [
+          20,
+          40
+        ],
+        "hip_pitch": [
+          16,
+          140
+        ],
+        "hip_roll": [
+          25,
+          75
+        ],
+        "knee": [
+          25,
+          115
+        ],
+        "shoulder_pitch": [
+          32,
+          75
+        ]
+      },
+      "total_mass_kg": 19.602073211107474,
+      "wall_s": 53.46437668800354
+    }
+  ],
+  "iterations": 3
+}

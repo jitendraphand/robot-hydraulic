@@ -1,0 +1,697 @@
+{
+ "config": "393db12be9dd23c9",
+ "design": {
+  "name": "HX-1 system",
+  "status": "WARN",
+  "checks": [
+   {
+    "id": "TRACE",
+    "title": "requirements traceability",
+    "reqs": [],
+    "status": "PASS",
+    "detail": "37 requirements, all verified by >= 1 check",
+    "seconds": 0.005,
+    "metrics": {}
+   }
+  ],
+  "children": [
+   {
+    "name": "Configuration & design loop",
+    "status": "PASS",
+    "checks": [
+     {
+      "id": "CFG-1",
+      "title": "robot.yaml schema",
+      "reqs": [
+       "SYS-006"
+      ],
+      "status": "PASS",
+      "detail": "robot.yaml validates against robot.schema.json",
+      "seconds": 0.072,
+      "metrics": {}
+     },
+     {
+      "id": "CFG-2",
+      "title": "kinematic topology & geometry consistency",
+      "reqs": [
+       "SYS-001"
+      ],
+      "status": "PASS",
+      "detail": "12 leg DOF, 8 arm DOF, 14 hydraulic; body origins match geometry",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "CFG-3",
+      "title": "derived artefacts up to date",
+      "reqs": [
+       "SYS-006"
+      ],
+      "status": "PASS",
+      "detail": "all 10 derived artefacts generated from robot.yaml 393db12be9dd23c9",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "CFG-4",
+      "title": "design loop converged",
+      "reqs": [
+       "SYS-007"
+      ],
+      "status": "PASS",
+      "detail": "converged in 3 iterations, mass 19.60 kg",
+      "seconds": 0.0,
+      "metrics": {
+       "iterations": 3,
+       "mass": 19.602073211107474
+      }
+     },
+     {
+      "id": "CFG-5",
+      "title": "total mass budget",
+      "reqs": [
+       "SYS-002"
+      ],
+      "status": "PASS",
+      "detail": "19.60 kg <= 25.0 kg",
+      "seconds": 0.021,
+      "metrics": {
+       "mass_kg": 19.602073211107474
+      }
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Mechanical (CAD / printing)",
+    "status": "WARN",
+    "checks": [],
+    "children": [
+     {
+      "name": "Printability",
+      "status": "WARN",
+      "checks": [
+       {
+        "id": "CAD-1",
+        "title": "parts fit Neptune 4 Max",
+        "reqs": [
+         "MEC-001"
+        ],
+        "status": "PASS",
+        "detail": "54 part designs fit; largest torso [190.0, 378.0, 384.0] mm",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "CAD-2",
+        "title": "meshes watertight",
+        "reqs": [
+         "MEC-002"
+        ],
+        "status": "PASS",
+        "detail": "66 STL files exist, watertight, positive volume",
+        "seconds": 0.896,
+        "metrics": {}
+       },
+       {
+        "id": "CAD-3",
+        "title": "materials vs printer",
+        "reqs": [
+         "MEC-005"
+        ],
+        "status": "WARN",
+        "detail": "temperatures within N4 Max limits; ['PA12-CF'] need a hardened-steel nozzle",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "CAD-4",
+        "title": "print plan, plates, BOM",
+        "reqs": [
+         "MEC-007"
+        ],
+        "status": "PASS",
+        "detail": "print plan, 10 plates, BOM with cylinder cut list",
+        "seconds": 0.0,
+        "metrics": {}
+       }
+      ],
+      "children": []
+     },
+     {
+      "name": "Assembly",
+      "status": "PASS",
+      "checks": [
+       {
+        "id": "CAD-5",
+        "title": "assembly interference (all poses)",
+        "reqs": [
+         "MEC-003"
+        ],
+        "status": "PASS",
+        "detail": "116 poses, 0 interferences (> 2.0 mm3)",
+        "seconds": 9.868,
+        "metrics": {
+         "poses": 116
+        }
+       },
+       {
+        "id": "CAD-6",
+        "title": "cylinder strokes in all poses",
+        "reqs": [
+         "MEC-004"
+        ],
+        "status": "PASS",
+        "detail": "all cylinder lengths within stroke in 116 poses",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "CAD-7",
+        "title": "printed lug bearing stress",
+        "reqs": [
+         "MEC-006"
+        ],
+        "status": "PASS",
+        "detail": "min lug bearing SF 6.1 (ankle_pitch) >= 3.0",
+        "seconds": 0.0,
+        "metrics": {
+         "sf": 6.14384890612096
+        }
+       }
+      ],
+      "children": []
+     }
+    ]
+   },
+   {
+    "name": "Hydraulics",
+    "status": "PASS",
+    "checks": [
+     {
+      "id": "HYD-1",
+      "title": "torque capacity vs simulated demand",
+      "reqs": [
+       "HYD-001"
+      ],
+      "status": "PASS",
+      "detail": "all 7 joint types >= SF x demand; tightest ankle_roll 1.17",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "HYD-2",
+      "title": "full-range capacity & moment arm",
+      "reqs": [
+       "HYD-002"
+      ],
+      "status": "PASS",
+      "detail": "full-range floor and moment arm >= 12 mm for all joints",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "HYD-3",
+      "title": "valve flow capacity",
+      "reqs": [
+       "HYD-003"
+      ],
+      "status": "PASS",
+      "detail": "valve 7.22 L/min >= 1.2 x peak 5.85 L/min (knee)",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "HYD-4",
+      "title": "HPU pump + accumulator",
+      "reqs": [
+       "HYD-004"
+      ],
+      "status": "PASS",
+      "detail": "min supply 13.5 bar (walk) >= 13.0; max pump duty 0.67; pump 7.65 L/min, accumulator 87 mL usable",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "HYD-5",
+      "title": "pressure ratings chain",
+      "reqs": [
+       "HYD-005"
+      ],
+      "status": "PASS",
+      "detail": "supply 15.0 < relief 17.0 < trip 18.5 < sensor 30; proof 25.5 bar <= valve/hose ratings",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "HYD-6",
+      "title": "proof-test procedure",
+      "reqs": [
+       "HYD-006"
+      ],
+      "status": "PASS",
+      "detail": "proof-test procedure documented",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Whole-body simulation",
+    "status": "PASS",
+    "checks": [
+     {
+      "id": "SIM-1",
+      "title": "stand",
+      "reqs": [
+       "SYS-003"
+      ],
+      "status": "PASS",
+      "detail": "stable, tilt 0.2 deg, max hydraulic tracking 0.13 deg, mass 19.6 kg",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-2",
+      "title": "walk",
+      "reqs": [
+       "SYS-003"
+      ],
+      "status": "PASS",
+      "detail": "stable, tilt 1.6 deg, max hydraulic tracking 0.46 deg, mass 19.6 kg",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-3",
+      "title": "squat",
+      "reqs": [
+       "SYS-004"
+      ],
+      "status": "PASS",
+      "detail": "stable, tilt 0.3 deg, max hydraulic tracking 0.31 deg, mass 19.6 kg",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-4",
+      "title": "single-leg balance",
+      "reqs": [
+       "SYS-004"
+      ],
+      "status": "PASS",
+      "detail": "stable, tilt 0.9 deg, max hydraulic tracking 0.45 deg, mass 19.6 kg",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-5",
+      "title": "arm lift with payload",
+      "reqs": [
+       "SYS-005"
+      ],
+      "status": "PASS",
+      "detail": "stable, tilt 0.2 deg, max hydraulic tracking 0.70 deg, mass 21.6 kg",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-6",
+      "title": "servo torque utilisation",
+      "reqs": [
+       "ELE-005"
+      ],
+      "status": "PASS",
+      "detail": "max servo utilisation 31 % (L_hip_yaw) <= 50 %",
+      "seconds": 0.002,
+      "metrics": {}
+     },
+     {
+      "id": "SIM-7",
+      "title": "motion inside soft limits",
+      "reqs": [
+       "SAF-002"
+      ],
+      "status": "PASS",
+      "detail": "simulated motion stays inside soft limits",
+      "seconds": 0.002,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Firmware & control",
+    "status": "PASS",
+    "checks": [
+     {
+      "id": "FW-1",
+      "title": "host build (-Werror) + unit tests",
+      "reqs": [
+       "CTL-001",
+       "CTL-007",
+       "SAF-002"
+      ],
+      "status": "PASS",
+      "detail": "-Werror build, 24 tests, 4612 checks, 0 failed checks, 0 failed tests",
+      "seconds": 0.127,
+      "metrics": {}
+     },
+     {
+      "id": "FW-2",
+      "title": "node firmware compile check",
+      "reqs": [
+       "CTL-002"
+      ],
+      "status": "PASS",
+      "detail": "5 node builds compile against the Arduino-ESP32 API (host check; full ESP32 toolchain build runs in CI: `pio run`)",
+      "seconds": 2.461,
+      "metrics": {}
+     },
+     {
+      "id": "FW-3",
+      "title": "generated headers current",
+      "reqs": [
+       "CTL-003"
+      ],
+      "status": "PASS",
+      "detail": "robot_config.h, can_protocol.h, pins.h match the configuration",
+      "seconds": 0.041,
+      "metrics": {}
+     },
+     {
+      "id": "FW-4",
+      "title": "brain arming interlocks",
+      "reqs": [
+       "CTL-008"
+      ],
+      "status": "PASS",
+      "detail": "arms with healthy nodes and pressure; refuses with a faulted node",
+      "seconds": 0.599,
+      "metrics": {}
+     }
+    ],
+    "children": [
+     {
+      "name": "Hydraulic SIL (real firmware vs plant model)",
+      "status": "PASS",
+      "checks": [
+       {
+        "id": "SIL-hip_roll",
+        "title": "hip_roll step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 4.0 % ts 0.10 s ss 0.23 deg; walk rms 0.79 max 1.68 deg; squat max 0.17 deg; pmax 11.1 bar",
+        "seconds": 0.001,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-hip_pitch",
+        "title": "hip_pitch step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 5.0 % ts 0.11 s ss 0.16 deg; walk rms 1.12 max 2.36 deg; squat max 1.16 deg; pmax 11.9 bar",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-knee",
+        "title": "knee step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 3.4 % ts 0.09 s ss 0.25 deg; walk rms 0.93 max 3.09 deg; squat max 1.43 deg; pmax 11.8 bar",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-ankle_pitch",
+        "title": "ankle_pitch step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 3.1 % ts 0.09 s ss 0.23 deg; walk rms 0.38 max 1.14 deg; squat max 0.59 deg; pmax 9.9 bar",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-ankle_roll",
+        "title": "ankle_roll step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 1.7 % ts 0.08 s ss 0.12 deg; walk rms 1.32 max 2.36 deg; squat max 0.24 deg; pmax 10.9 bar",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-shoulder_pitch",
+        "title": "shoulder_pitch step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 1.8 % ts 0.10 s ss 0.08 deg; walk rms 0.07 max 0.20 deg; squat max 0.20 deg; pmax 8.3 bar",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-elbow",
+        "title": "elbow step + walk/squat replay",
+        "reqs": [
+         "CTL-004",
+         "CTL-005"
+        ],
+        "status": "PASS",
+        "detail": "step os 0.0 % ts 0.11 s ss 0.10 deg; walk rms 0.11 max 0.41 deg; squat max 0.41 deg; pmax 8.3 bar",
+        "seconds": 0.0,
+        "metrics": {}
+       },
+       {
+        "id": "SIL-F",
+        "title": "fault injection (encoder, pressure, supply)",
+        "reqs": [
+         "CTL-006",
+         "SAF-002"
+        ],
+        "status": "PASS",
+        "detail": "21 injected faults detected within 50 ms, valve locked",
+        "seconds": 0.0,
+        "metrics": {}
+       }
+      ],
+      "children": []
+     }
+    ]
+   },
+   {
+    "name": "Electronics",
+    "status": "PASS",
+    "checks": [
+     {
+      "id": "ELE-1",
+      "title": "ERC (limb + hub boards)",
+      "reqs": [
+       "ELE-001"
+      ],
+      "status": "PASS",
+      "detail": "0 errors, 0 warnings (hub: 33 parts / 37 nets, limb: 53 parts / 56 nets)",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "ELE-2",
+      "title": "power budget",
+      "reqs": [
+       "ELE-002"
+      ],
+      "status": "PASS",
+      "detail": "min regulator margin 1.40x (SERVO_7V4); battery peak 42 A of 200 A; runtime ~41 min",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "ELE-3",
+      "title": "harness ampacity & fusing",
+      "reqs": [
+       "ELE-003"
+      ],
+      "status": "PASS",
+      "detail": "all wires fused within ampacity and <= 80 % loaded",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "ELE-4",
+      "title": "CAN bus load",
+      "reqs": [
+       "ELE-004"
+      ],
+      "status": "PASS",
+      "detail": "max bus load 38 % (CAN_B)",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "ELE-5",
+      "title": "e-stop power architecture",
+      "reqs": [
+       "SAF-001"
+      ],
+      "status": "PASS",
+      "detail": "pump+servo power e-stop switched; logic+valve servos always on; NO dump valve in BOM",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Documentation & safety",
+    "status": "PASS",
+    "checks": [
+     {
+      "id": "DOC-1",
+      "title": "guides present",
+      "reqs": [
+       "DOC-001"
+      ],
+      "status": "PASS",
+      "detail": "10 guides present",
+      "seconds": 0.0,
+      "metrics": {}
+     },
+     {
+      "id": "DOC-2",
+      "title": "safety guide content",
+      "reqs": [
+       "SAF-003"
+      ],
+      "status": "PASS",
+      "detail": "hazards, PPE, proof testing, e-stop, gantry bring-up covered",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   }
+  ]
+ },
+ "build": {
+  "name": "Physical build (qa/build_log.yaml)",
+  "status": "PENDING",
+  "checks": [],
+  "children": [
+   {
+    "name": "Calibration coupons",
+    "status": "PENDING",
+    "checks": [
+     {
+      "id": "BLD-CALI",
+      "title": "Calibration coupons",
+      "reqs": [],
+      "status": "PENDING",
+      "detail": "0 pass, 3 pending, 0 fail",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Printed parts",
+    "status": "PENDING",
+    "checks": [
+     {
+      "id": "BLD-PART",
+      "title": "Printed parts",
+      "reqs": [],
+      "status": "PENDING",
+      "detail": "0 pass, 206 pending, 0 fail",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Cylinders (proof-tested)",
+    "status": "PENDING",
+    "checks": [
+     {
+      "id": "BLD-CYLI",
+      "title": "Cylinders (proof-tested)",
+      "reqs": [],
+      "status": "PENDING",
+      "detail": "0 pass, 14 pending, 0 fail",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Joints",
+    "status": "PENDING",
+    "checks": [
+     {
+      "id": "BLD-JOIN",
+      "title": "Joints",
+      "reqs": [],
+      "status": "PENDING",
+      "detail": "0 pass, 24 pending, 0 fail",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "Limbs / nodes",
+    "status": "PENDING",
+    "checks": [
+     {
+      "id": "BLD-LIMB",
+      "title": "Limbs / nodes",
+      "reqs": [],
+      "status": "PENDING",
+      "detail": "0 pass, 5 pending, 0 fail",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   },
+   {
+    "name": "System bring-up",
+    "status": "PENDING",
+    "checks": [
+     {
+      "id": "BLD-SYST",
+      "title": "System bring-up",
+      "reqs": [],
+      "status": "PENDING",
+      "detail": "0 pass, 1 pending, 0 fail",
+      "seconds": 0.0,
+      "metrics": {}
+     }
+    ],
+    "children": []
+   }
+  ]
+ }
+}

@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HX-1 robot configuration",
+  "type": "object",
+  "required": ["meta", "printer", "materials", "print_profiles", "hardware", "joint_hardware", "geometry",
+               "mass_guess", "torso_equipment", "hydraulics", "bodies", "servo_models", "servo_sizing",
+               "sim", "control", "electrical", "qa"],
+  "$defs": {
+    "pos": {"type": "number", "exclusiveMinimum": 0},
+    "range": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2},
+    "vec3": {"type": "array", "items": {"type": "number"}, "minItems": 3, "maxItems": 3},
+    "actuator": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {"enum": ["hydraulic", "servo"]},
+        "model": {"type": "string"},
+        "plane_offset": {"type": "number", "minimum": -0.2, "maximum": 0.2},
+        "valve_on": {"enum": ["parent", "child"]},
+        "anchors": {
+          "type": "object",
+          "required": ["parent", "child"],
+          "additionalProperties": {
+            "type": "object", "required": ["u", "v"],
+            "properties": {"u": {"$ref": "#/$defs/range"}, "v": {"$ref": "#/$defs/range"}}
+          }
+        }
+      },
+      "if": {"properties": {"type": {"const": "hydraulic"}}},
+      "then": {"required": ["plane_offset", "anchors"]},
+      "else": {"required": ["model"]}
+    }
+  },
+  "properties": {
+    "meta": {"type": "object", "required": ["name", "version", "mass_max_kg"],
+             "properties": {"mass_max_kg": {"$ref": "#/$defs/pos"}}},
+    "printer": {
+      "type": "object",
+      "required": ["bed_x_mm", "bed_y_mm", "max_z_mm", "edge_margin_mm", "max_nozzle_c", "max_bed_c"],
+      "properties": {
+        "bed_x_mm": {"type": "number", "minimum": 100, "maximum": 1000},
+        "bed_y_mm": {"type": "number", "minimum": 100, "maximum": 1000},
+        "max_z_mm": {"type": "number", "minimum": 100, "maximum": 1000},
+        "max_bed_c": {"type": "number", "maximum": 150}
+      }
+    },
+    "materials": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["density_g_cm3", "nozzle_c", "bed_c", "hardened_nozzle", "tensile_mpa"],
+        "properties": {"density_g_cm3": {"type": "number", "minimum": 0.8, "maximum": 2.0},
+                       "hardened_nozzle": {"type": "boolean"}}
+      }
+    },
+    "print_profiles": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object", "required": ["layer_mm", "perimeters", "infill"],
+        "properties": {"infill": {"type": "number", "minimum": 0, "maximum": 1},
+                       "perimeters": {"type": "integer", "minimum": 1}}
+      }
+    },
+    "geometry": {
+      "type": "object",
+      "required": ["hip_spacing", "hip_drop", "hip_pitch_offset", "thigh_length", "shin_length",
+                   "ankle_roll_offset", "ankle_height", "foot", "torso", "link_radius"],
+      "properties": {"thigh_length": {"$ref": "#/$defs/pos"}, "shin_length": {"$ref": "#/$defs/pos"}}
+    },
+    "hydraulics": {
+      "type": "object",
+      "required": ["fluid", "supply_pressure_bar", "return_pressure_bar", "relief_pressure_bar", "proof_factor",
+                   "force_pressure_fraction", "hpu", "valve", "hose", "sensor", "cylinder_catalog",
+                   "cylinder_construction", "sizing"],
+      "properties": {
+        "supply_pressure_bar": {"type": "number", "minimum": 2, "maximum": 30},
+        "proof_factor": {"type": "number", "minimum": 1.25},
+        "force_pressure_fraction": {"type": "number", "minimum": 0.3, "maximum": 1.0},
+        "fluid": {"type": "object", "required": ["density", "effective_bulk_modulus_pa"],
+                  "properties": {"effective_bulk_modulus_pa": {"type": "number", "minimum": 1e7}}},
+        "valve": {"type": "object", "required": ["rated_flow_lpm", "rated_dp_bar", "overlap", "servo", "rated_pressure_bar"],
+                  "properties": {"overlap": {"type": "number", "minimum": 0, "maximum": 0.5}}},
+        "cylinder_catalog": {
+          "type": "object",
+          "additionalProperties": {"type": "array", "items": {"type": "number"}, "minItems": 2, "maxItems": 2}
+        }
+      }
+    },
+    "bodies": {
+      "type": "array",
+      "minItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["name", "parent"],
+        "properties": {
+          "side": {"enum": ["LR"]},
+          "origin": {"$ref": "#/$defs/vec3"},
+          "joint": {
+            "type": "object",
+            "required": ["name", "axis", "range_deg", "actuator"],
+            "properties": {"axis": {"enum": ["x", "y", "z"]}, "range_deg": {"$ref": "#/$defs/range"},
+                           "actuator": {"$ref": "#/$defs/actuator"}}
+          }
+        }
+      }
+    },
+    "servo_models": {
+      "type": "object",
+      "additionalProperties": {"type": "object", "required": ["stall_nm", "mass", "volts", "body", "shaft_offset"]}
+    },
+    "control": {
+      "type": "object",
+      "required": ["loop_hz", "can_bitrate", "heartbeat_timeout_ms", "max_following_error_deg", "soft_limit_margin_deg",
+                   "pressure_trip_bar", "valve_deadband", "force_bandwidth_hz", "position_bandwidth_hz", "impedance_stiffness_deg"]
+    },
+    "electrical": {
+      "type": "object", "required": ["rails", "nodes"],
+      "properties": {
+        "nodes": {"type": "array", "items": {"type": "object", "required": ["name", "id", "kind", "joints"],
+                                             "properties": {"id": {"type": "integer", "minimum": 1, "maximum": 8},
+                                                            "joints": {"type": "array", "maxItems": 8}}}}
+      }
+    },
+    "qa": {"type": "object", "required": ["sil", "sim", "cad", "hpu"]}
+  }
+}

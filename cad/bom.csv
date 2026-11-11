@@ -1,0 +1,67 @@
+category,item,qty,ref
+hydraulic,"Al honed barrel 32 ID x 36 OD, cut 116.0 mm",2,b32s100
+hydraulic,"Hardened chromed rod d12, cut 171.0 mm, turn M8 piston end + M8 outer end",2,b32s100
+hydraulic,M3 A4 threaded rod 160.0 mm (tie rods) + 8x M3 nyloc,8,b32s100
+hydraulic,"NBR70 O-ring set for 32 bore (piston, 2x static, 2x rod, wiper)",2,b32s100
+hydraulic,"Al honed barrel 20 ID x 23 OD, cut 71.0 mm",2,b20s55
+hydraulic,"Hardened chromed rod d8, cut 126.0 mm, turn M5 piston end + M6 outer end",2,b20s55
+hydraulic,M3 A4 threaded rod 115.0 mm (tie rods) + 8x M3 nyloc,8,b20s55
+hydraulic,"NBR70 O-ring set for 20 bore (piston, 2x static, 2x rod, wiper)",2,b20s55
+hydraulic,"Al honed barrel 20 ID x 23 OD, cut 56.0 mm",2,b20s40
+hydraulic,"Hardened chromed rod d8, cut 111.0 mm, turn M5 piston end + M6 outer end",2,b20s40
+hydraulic,M3 A4 threaded rod 100.0 mm (tie rods) + 8x M3 nyloc,8,b20s40
+hydraulic,"NBR70 O-ring set for 20 bore (piston, 2x static, 2x rod, wiper)",2,b20s40
+hydraulic,"Al honed barrel 16 ID x 19 OD, cut 156.0 mm",2,b16s140
+hydraulic,"Hardened chromed rod d6, cut 211.0 mm, turn M4 piston end + M6 outer end",2,b16s140
+hydraulic,M3 A4 threaded rod 200.0 mm (tie rods) + 8x M3 nyloc,8,b16s140
+hydraulic,"NBR70 O-ring set for 16 bore (piston, 2x static, 2x rod, wiper)",2,b16s140
+hydraulic,"Al honed barrel 25 ID x 29 OD, cut 91.0 mm",2,b25s75
+hydraulic,"Hardened chromed rod d10, cut 146.0 mm, turn M6 piston end + M8 outer end",2,b25s75
+hydraulic,M3 A4 threaded rod 135.0 mm (tie rods) + 8x M3 nyloc,8,b25s75
+hydraulic,"NBR70 O-ring set for 25 bore (piston, 2x static, 2x rod, wiper)",2,b25s75
+hydraulic,"Al honed barrel 25 ID x 29 OD, cut 131.0 mm",2,b25s115
+hydraulic,"Hardened chromed rod d10, cut 186.0 mm, turn M6 piston end + M8 outer end",2,b25s115
+hydraulic,M3 A4 threaded rod 175.0 mm (tie rods) + 8x M3 nyloc,8,b25s115
+hydraulic,"NBR70 O-ring set for 25 bore (piston, 2x static, 2x rod, wiper)",2,b25s115
+hydraulic,"Al honed barrel 32 ID x 36 OD, cut 91.0 mm",2,b32s75
+hydraulic,"Hardened chromed rod d12, cut 146.0 mm, turn M8 piston end + M8 outer end",2,b32s75
+hydraulic,M3 A4 threaded rod 135.0 mm (tie rods) + 8x M3 nyloc,8,b32s75
+hydraulic,"NBR70 O-ring set for 32 bore (piston, 2x static, 2x rod, wiper)",2,b32s75
+hydraulic,"miniature 4/3 closed-centre proportional spool valve, servo actuated (RC-hydraulics class) (G1/8 (M5 adaptors on the cylinder side) ports, >= 30 bar)",14,valves
+hydraulic,"digital micro servo, metal gear, 0.06 s/60 deg @ 6 V (valve actuator)",14,valves
+hydraulic,"Pressure transducer 0-30 bar, 0.5-4.5 V ratiometric",30,sensors
+hydraulic,M8 female rod end (rod side),14,joints
+hydraulic,GE8E spherical plain bearing (blind lug),14,joints
+hydraulic,M5 brass threaded insert (ports),28,fittings
+hydraulic,M5 -> 6 mm push-in / banjo fitting rated >= 30 bar,62,fittings
+hydraulic,PA12 hose 6x4 mm rated 40 bar (m),12,fittings
+hpu,"Gear pump 1.5 cc/rev, >= 30 bar (RC-hydraulics class)",1,hpu
+hpu,BLDC motor 6S ~400 W + ESC with RPM telemetry,1,hpu
+hpu,"Diaphragm accumulator 0.5 L, precharge 11.0 bar N2",1,hpu
+hpu,"Relief valve adjustable, set 17.0 bar",1,hpu
+hpu,Normally-open 2/2 solenoid dump valve (accumulator -> tank on power loss),1,hpu
+hpu,Return filter 25 um + suction strainer,1,hpu
+hpu,Check valve (pump outlet),1,hpu
+hpu,"Reservoir 0.6 L w/ breather, level switch, NTC",1,hpu
+joints,608-2RS bearing,28,joints
+joints,6808-2RS bearing (hip yaw),2,joints
+joints,M8 x 70 socket head bolt + nyloc (joint axes),14,joints
+joints,M8 x 30 bolt (hip roll stub axles) + M8 nut,4,joints
+joints,M8 shoulder pins for cylinder ends (M8 x 45 + nyloc),28,joints
+joints,DIN 988 8x14x1 shim,84,joints
+sensors,AS5048A magnetic encoder board + 6x2.5 diametric magnet,14,sensors
+sensors,FSR 402 force sensor (feet),8,sensors
+sensors,IMU (BNO085 or ICM-42688 breakout),1,sensors
+fasteners,M3 heat-set insert (5.7 mm),200,fasteners
+fasteners,M4 heat-set insert (8.1 mm),20,fasteners
+fasteners,M3 / M4 socket head screw assortment (A2),1,fasteners
+servo,Servo HV-150kgcm (L_hip_yaw),1,servos
+servo,Servo HV-150kgcm (R_hip_yaw),1,servos
+servo,Servo HV-60kgcm (L_shoulder_roll),1,servos
+servo,Servo HV-60kgcm (R_shoulder_roll),1,servos
+servo,Servo HV-35kgcm (L_shoulder_yaw),1,servos
+servo,Servo HV-35kgcm (R_shoulder_yaw),1,servos
+servo,Servo MG996R (L_gripper),1,servos
+servo,Servo MG996R (R_gripper),1,servos
+servo,Servo MG996R (neck_yaw),1,servos
+servo,Servo MG996R (neck_pitch),1,servos

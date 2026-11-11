@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="640" font-family="Helvetica,Arial" font-size="12">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="20" y="22" font-size="16" font-weight="bold">HX-1 power &amp; communication architecture</text>
+<line x1="150" y1="84" x2="150" y2="150" stroke="#c22" stroke-width="2.5"/><text x="154.0" y="113.0" fill="#c22" font-size="11">AWG8</text>
+<line x1="150" y1="194" x2="150" y2="260" stroke="#c22" stroke-width="2.5"/><text x="154.0" y="223.0" fill="#c22" font-size="11">AWG8</text>
+<line x1="150" y1="304" x2="150" y2="380" stroke="#c22" stroke-width="2.5"/><text x="154.0" y="338.0" fill="#c22" font-size="11">AWG8</text>
+<line x1="150" y1="424" x2="150" y2="500" stroke="#c22" stroke-width="2.5"/><text x="154.0" y="458.0" fill="#c22" font-size="11">AWG12</text>
+<line x1="260" y1="172" x2="300" y2="172" stroke="#d70" stroke-width="2.5"/><text x="284.0" y="168.0" fill="#d70" font-size="11">AWG16</text>
+<line x1="260" y1="402" x2="300" y2="402" stroke="#c22" stroke-width="2.5"/><text x="284.0" y="398.0" fill="#c22" font-size="11">AWG14</text>
+<line x1="410" y1="194" x2="410" y2="260" stroke="#d70" stroke-width="2.5"/><text x="414.0" y="223.0" fill="#d70" font-size="11">AWG16</text>
+<line x1="520" y1="172" x2="560" y2="172" stroke="#d70" stroke-width="2.5"/><text x="544.0" y="168.0" fill="#d70" font-size="11">AWG18</text>
+<line x1="520" y1="172" x2="560" y2="62" stroke="#d70" stroke-width="2.5"/><text x="544.0" y="113.0" fill="#d70" font-size="11">AWG18</text>
+<line x1="780" y1="62" x2="820" y2="62" stroke="#d70" stroke-width="2.5"/><text x="804.0" y="58.0" fill="#d70" font-size="11">5.1 V</text>
+<line x1="260" y1="402" x2="300" y2="522" stroke="#c22" stroke-width="2.5"/><text x="284.0" y="458.0" fill="#c22" font-size="11">24 V</text>
+<line x1="780" y1="172" x2="820" y2="222" stroke="#d70" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="780" y1="172" x2="820" y2="292" stroke="#d70" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="780" y1="172" x2="820" y2="402" stroke="#d70" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="780" y1="172" x2="820" y2="472" stroke="#d70" stroke-width="2.5" stroke-dasharray="6,4"/>
+<line x1="780" y1="172" x2="820" y2="542" stroke="#d70" stroke-width="2.5" stroke-dasharray="6,4"/>
+<path d="M 1045 62 L 1075 62 L 1075 292 L 1045 292" fill="none" stroke="#06c" stroke-width="3"/>
+<text x="1050" y="180" fill="#06c" transform="rotate(90 1050 180)">CAN_A 1 Mbit</text>
+<path d="M 1045 70 L 1090 70 L 1090 542 L 1045 542" fill="none" stroke="#08a" stroke-width="3"/>
+<text x="1098" y="400" fill="#08a" transform="rotate(90 1098 400)">CAN_B 1 Mbit</text>
+<rect x="40" y="40" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="150" y="67" text-anchor="middle">2x 6S LiPo 10 Ah</text>
+<rect x="40" y="150" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="150" y="177" text-anchor="middle">Main fuse 60 A</text>
+<rect x="40" y="260" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="150" y="287" text-anchor="middle">E-stop chain + contactor</text>
+<rect x="40" y="380" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="150" y="407" text-anchor="middle">Actuator PDB (e-stop switched)</text>
+<rect x="300" y="150" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="410" y="177" text-anchor="middle">Logic PDB (always on)</text>
+<rect x="40" y="500" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="150" y="527" text-anchor="middle">ESC + BLDC pump</text>
+<rect x="300" y="380" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="410" y="407" text-anchor="middle">Buck 7.4 V 30 A (servos)</text>
+<rect x="300" y="260" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="410" y="287" text-anchor="middle">Buck 6 V 15 A (valve servos)</text>
+<rect x="560" y="150" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="670" y="177" text-anchor="middle">Buck 5 V 6 A (logic)</text>
+<rect x="560" y="40" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="670" y="67" text-anchor="middle">Buck 5.1 V 6 A (brain)</text>
+<rect x="820" y="40" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="930" y="67" text-anchor="middle">Brain: Raspberry Pi 5</text>
+<rect x="820" y="200" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="930" y="227" text-anchor="middle">Node leg_L</text>
+<rect x="820" y="270" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="930" y="297" text-anchor="middle">Node leg_R</text>
+<rect x="820" y="380" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="930" y="407" text-anchor="middle">Node arm_L</text>
+<rect x="820" y="450" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="930" y="477" text-anchor="middle">Node arm_R</text>
+<rect x="820" y="520" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="930" y="547" text-anchor="middle">Hub node (HPU/IMU)</text>
+<rect x="300" y="500" width="220" height="44" rx="6" fill="#eef1f6" stroke="#334"/><text x="410" y="527" text-anchor="middle">Dump valve (NO)</text>
+<text x="40" y="610" fill="#555">Red: e-stop switched actuator power. Orange: always-on logic power (nodes stay alive to centre valve spools and report). Blue: CAN buses with 120 R terminations at both ends.</text>
+</svg>

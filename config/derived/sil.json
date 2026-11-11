@@ -1,0 +1,387 @@
+{
+  "ankle_pitch": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.02376332770782089,
+      "peak_pressure_bar": 7.662332913881657,
+      "rms_err_deg": 0.018942080776967594,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.02376332770782089,
+      "peak_pressure_bar": 7.662332913881657,
+      "rms_err_deg": 0.018942080776967594,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.013371226048959801,
+      "peak_pressure_bar": 7.225619066404034,
+      "rms_err_deg": 0.006062698582688298,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.5899975706447801,
+      "peak_pressure_bar": 9.099504348752957,
+      "rms_err_deg": 0.26032605108761936,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.36894851493972547,
+      "overshoot": 0.0305568204453055,
+      "peak_pressure_bar": 7.945885689970675,
+      "rise_s": 0.05999999999999997,
+      "rms_err_deg": 0.23056670215884245,
+      "settle_5pct_s": 0.08999999999999997,
+      "ss_err_deg": 0.22637385006149044,
+      "valve_saturation": 0.0225
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 1.1356655713895063,
+      "peak_pressure_bar": 9.949479985341261,
+      "rms_err_deg": 0.3752536351073438,
+      "valve_saturation": 0.0
+    }
+  },
+  "ankle_roll": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.006631340441930706,
+      "peak_pressure_bar": 7.557122291777262,
+      "rms_err_deg": 0.00490223361669844,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.006631340441930706,
+      "peak_pressure_bar": 7.557122291777262,
+      "rms_err_deg": 0.00490223361669844,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.022679963584621227,
+      "peak_pressure_bar": 7.517295477762815,
+      "rms_err_deg": 0.011774010667675642,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.23591620344731687,
+      "peak_pressure_bar": 8.37096787621237,
+      "rms_err_deg": 0.09443192113483011,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.1324980372625435,
+      "overshoot": 0.01656225465781791,
+      "peak_pressure_bar": 10.327346592031805,
+      "rise_s": 0.060000000000000026,
+      "rms_err_deg": 0.12744989333691162,
+      "settle_5pct_s": 0.08000000000000002,
+      "ss_err_deg": 0.12326544394036937,
+      "valve_saturation": 0.0
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 2.3639353447363542,
+      "peak_pressure_bar": 10.859217529245557,
+      "rms_err_deg": 1.3204787467175156,
+      "valve_saturation": 0.0
+    }
+  },
+  "elbow": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.23541409444180386,
+      "peak_pressure_bar": 8.028111967592352,
+      "rms_err_deg": 0.18459484950665098,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.23541409444180386,
+      "peak_pressure_bar": 8.028111967592352,
+      "rms_err_deg": 0.18459484950665098,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.12865940638536633,
+      "peak_pressure_bar": 7.9986907695057194,
+      "rms_err_deg": 0.07760371906700822,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.4125410536565583,
+      "peak_pressure_bar": 8.307423820529948,
+      "rms_err_deg": 0.12485878775584874,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.6356589640923156,
+      "overshoot": 0.0,
+      "peak_pressure_bar": 12.444707661267575,
+      "rise_s": 0.06999999999999998,
+      "rms_err_deg": 0.15276600828860656,
+      "settle_5pct_s": 0.10999999999999999,
+      "ss_err_deg": 0.10305472629152249,
+      "valve_saturation": 0.0
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.41271536646640855,
+      "peak_pressure_bar": 8.325047081075105,
+      "rms_err_deg": 0.10600867794723615,
+      "valve_saturation": 0.0
+    }
+  },
+  "hip_pitch": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.00836126737095575,
+      "peak_pressure_bar": 7.525884762638437,
+      "rms_err_deg": 0.00771517246547697,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.00836126737095575,
+      "peak_pressure_bar": 7.525884762638437,
+      "rms_err_deg": 0.00771517246547697,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.01316350059589316,
+      "peak_pressure_bar": 7.428506141887392,
+      "rms_err_deg": 0.010236522786552208,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 1.1615863087413028,
+      "peak_pressure_bar": 10.15194153366466,
+      "rms_err_deg": 0.5886068734937783,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": 0.338,
+      "faults": 4,
+      "max_err_deg": 1.857808863467559,
+      "overshoot": 0.049608151648908416,
+      "peak_pressure_bar": 18.800840750482738,
+      "rise_s": 0.08000000000000002,
+      "rms_err_deg": 0.2426105598018155,
+      "settle_5pct_s": 0.10999999999999999,
+      "ss_err_deg": 0.16422352057759781,
+      "valve_saturation": 0.0
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 2.3593947789889063,
+      "peak_pressure_bar": 11.892698808145717,
+      "rms_err_deg": 1.116971514568079,
+      "valve_saturation": 0.0
+    }
+  },
+  "hip_roll": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.0590824098754046,
+      "peak_pressure_bar": 8.634871468227532,
+      "rms_err_deg": 0.04336326020300502,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.0590824098754046,
+      "peak_pressure_bar": 8.634871468227532,
+      "rms_err_deg": 0.04336326020300502,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.06489158579555178,
+      "peak_pressure_bar": 8.383354154990043,
+      "rms_err_deg": 0.05012563067699384,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.16744804853780734,
+      "peak_pressure_bar": 8.516916468750605,
+      "rms_err_deg": 0.07450562264497303,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.7810535197206283,
+      "overshoot": 0.03993273039363143,
+      "peak_pressure_bar": 14.090555421772478,
+      "rise_s": 0.06,
+      "rms_err_deg": 0.2754881785493895,
+      "settle_5pct_s": 0.09999999999999998,
+      "ss_err_deg": 0.2292111191908466,
+      "valve_saturation": 0.03916666666666667
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 1.6846818238263634,
+      "peak_pressure_bar": 11.106578687219484,
+      "rms_err_deg": 0.7921165834439369,
+      "valve_saturation": 0.0
+    }
+  },
+  "knee": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.09797502824975858,
+      "peak_pressure_bar": 8.647345878152645,
+      "rms_err_deg": 0.07574317428455662,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.09797502824975858,
+      "peak_pressure_bar": 8.647345878152645,
+      "rms_err_deg": 0.07574317428455662,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.06703210032646548,
+      "peak_pressure_bar": 8.171369464631788,
+      "rms_err_deg": 0.05787121515978583,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 1.4302943727075292,
+      "peak_pressure_bar": 11.823362231350297,
+      "rms_err_deg": 0.6059679191020002,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.27343896122199673,
+      "overshoot": 0.034155944214123934,
+      "peak_pressure_bar": 10.308761250609315,
+      "rise_s": 0.05999999999999997,
+      "rms_err_deg": 0.22005119809640158,
+      "settle_5pct_s": 0.08999999999999997,
+      "ss_err_deg": 0.248347200139737,
+      "valve_saturation": 0.0
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 3.09167191634231,
+      "peak_pressure_bar": 11.47782340082562,
+      "rms_err_deg": 0.9319305394442974,
+      "valve_saturation": 0.0
+    }
+  },
+  "shoulder_pitch": {
+    "fault_encoder": {
+      "fault_time": 0.3,
+      "faults": 1,
+      "max_err_deg": 0.07172298073304101,
+      "peak_pressure_bar": 7.940968171125477,
+      "rms_err_deg": 0.05769423334174682,
+      "valve_saturation": 0.0
+    },
+    "fault_pressure": {
+      "fault_time": 0.3,
+      "faults": 2,
+      "max_err_deg": 0.07172298073304101,
+      "peak_pressure_bar": 7.940968171125477,
+      "rms_err_deg": 0.05769423334174682,
+      "valve_saturation": 0.0
+    },
+    "fault_supply_loss": {
+      "fault_time": 0.3,
+      "faults": 32,
+      "max_err_deg": 0.04160677877133963,
+      "peak_pressure_bar": 7.548031277627043,
+      "rms_err_deg": 0.0199548299621248,
+      "valve_saturation": 0.0
+    },
+    "pass": true,
+    "squat": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.1994615878024363,
+      "peak_pressure_bar": 8.27395306763765,
+      "rms_err_deg": 0.08084294638358698,
+      "valve_saturation": 0.0
+    },
+    "step": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.6119562466838966,
+      "overshoot": 0.01766560646622395,
+      "peak_pressure_bar": 11.333171880336417,
+      "rise_s": 0.06999999999999998,
+      "rms_err_deg": 0.12946632168410202,
+      "settle_5pct_s": 0.09999999999999998,
+      "ss_err_deg": 0.08466899594504833,
+      "valve_saturation": 0.0
+    },
+    "walk": {
+      "fault_time": null,
+      "faults": 0,
+      "max_err_deg": 0.20458631563395385,
+      "peak_pressure_bar": 8.282872549181405,
+      "rms_err_deg": 0.06899823183178529,
+      "valve_saturation": 0.0
+    }
+  }
+}
